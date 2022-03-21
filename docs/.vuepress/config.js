@@ -15,7 +15,7 @@ module.exports = {
     sidebar: {
       '/cli/': [
         {
-          title: '一个简单的脚手架', children: ['/cli/cliPrinciple', '/cli/aSimpleCli']
+          title: '一个简单的脚手架', children: ['/cli/cli-principle', '/cli/a-simple-cli']
         },
       ],
     },
