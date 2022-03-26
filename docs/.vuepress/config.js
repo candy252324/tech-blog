@@ -15,7 +15,10 @@ module.exports = {
     sidebar: {
       '/cli/': [
         {
-          title: '脚手架原理', children: ['/cli/cli-principle', '/cli/a-simple-cli', 'learna', 'lerna-principle']
+          title: '脚手架原理', children: ['/cli/cli-principle', '/cli/a-simple-cli']
+        },
+        {
+          title: 'npm-link 和lerna', children: ['npm-link', 'learna', 'lerna-principle']
         },
       ],
     },
