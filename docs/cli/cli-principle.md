@@ -8,7 +8,7 @@
 
 `npm install vue -g`的时候，npm会把vue包下载到在`C:\Users\xxx\AppData\Roaming\npm\node_modules`目录下
 
-<img :src="$withBase('/imgs/principle-path.png')">
+<img :src="$withBase('/imgs/cli/principle-path.png')">
 
 
 #### 2. 根据package.json中的配置生成软链接
@@ -24,7 +24,7 @@
   }
 },
 ```
-<img :src="$withBase('/imgs/soft-connection.png')" style="transform:scale(0.9);">
+<img :src="$withBase('/imgs/cli/soft-connection.png')" style="transform:scale(0.9);">
 
 ### 3. 软链接中指定目标执行文件的位置
 
