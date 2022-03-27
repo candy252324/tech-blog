@@ -5,12 +5,12 @@
 ### 场景一： 使用相对路径进行link
 如下目录结果，project 是项目目录，cxx-utils是需要开发的npm包。
 ```
-|- project
-  |- index.js
-  |- package.json
-|- cxx-utils
-  |- index.js
-  |- package.json
+├─project
+  ├─index.js
+  ├─package.json
+├─cxx-utils
+  ├─index.js
+  ├─package.json
 ```
 
 cxx-utils/index.js中定义了一个sum方法：
@@ -79,3 +79,7 @@ npm link cxx-utils
 
 
 **注：npm link 会在node_nodules下添加软链接，但不会在package.json中自动添加依赖。但是 ，unlink 会自动移除package.json中的依赖。**
+
+
+### 最后，补充一个小点
+如果在cxx-utils目录下执行`npm i cxx-utils -g`, 并不会在用户根目录下安装远程npm上的cxx-utils包，而只是在用户根目录下创建了一个本地cxx-utils的软连接。效果等同于在cxx-utils目录下执行`npm link`。
