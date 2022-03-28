@@ -18,7 +18,10 @@ module.exports = {
           title: '脚手架原理', children: ['/cli/cli-principle', '/cli/a-simple-cli']
         },
         {
-          title: 'npm-link 和lerna', children: ['npm-link', 'learna', 'lerna-principle']
+          title: 'npm-link 和 lerna', children: ['npm-link', 'learna', 'lerna-principle']
+        },
+        {
+          title: 'start', children: ['start']
         },
       ],
     },
