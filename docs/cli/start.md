@@ -64,6 +64,13 @@ const userHome=require('user-home')
 const pathExists=require('path-exists').sync
 
 ```
+5、使用minimist检查入参，如果是debug模式，则将log的level改为'verbose'
+6、使用dotenv检查环境变量, 保存用户名，密码等敏感信息 
+7、获取最新版本号提示版本更新
+
+
+
+
 
 
 utils 的文件目录结构为
