@@ -37,3 +37,11 @@ program.on('option:debug',function(){
   }
 })
 ```
+
+### 高级定制3，监听所有未知命令(未注册的命令)
+``` js
+program.on('command:*',function(obj){
+  console.error('未知的命令',obj[0])
+  console.log(program.commands.map(cmd=>cmd.name))
+})
+```
