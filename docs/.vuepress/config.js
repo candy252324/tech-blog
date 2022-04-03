@@ -21,6 +21,17 @@ module.exports = {
           title: 'npm-link 和 lerna', children: ['npm-link', 'learna', 'lerna-principle']
         },
         {
+          title: '前置准备工作', children: [
+            '/cli/prepare/customLog',
+            '/cli/prepare/checkPkgVersion',
+            '/cli/prepare/checkEnv',
+            '/cli/prepare/checkNodeVersion',
+            '/cli/prepare/checkOpenDebug',
+            '/cli/prepare/checkRoot',
+            '/cli/prepare/checkUserHomeDir',
+          ]
+        },
+        {
           title: 'start', children: ['start']
         },
       ],
