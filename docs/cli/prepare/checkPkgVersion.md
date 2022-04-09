@@ -6,7 +6,7 @@
 
 1、 url-join 是ES module, 通过require引入报错
 
-2、sort((a, b) => semver.gt(b, a)) 倒叙排列不生效
+2、sort((a, b) => semver.gt(b, a))  倒序排列不生效(cjh todo)
 
 
 ``` bash

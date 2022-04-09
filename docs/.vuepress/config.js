@@ -11,6 +11,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Cli', link: '/cli/' },
+      { text: 'Vue2', link: '/vue2/' },
     ],
     sidebar: {
       '/cli/': [
@@ -35,6 +36,11 @@ module.exports = {
           title: 'start', children: ['start']
         },
       ],
+      "/vue2/": [
+        {
+          title: 'start', children: ['/vue2/start']
+        },
+      ]
     },
     sidebarDepth: 2,
   }
