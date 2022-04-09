@@ -1,4 +1,34 @@
-# commander
+# 基本使用
+
+``` bash
+npm i commander -S
+```
+``` js
+const commander = require('commander')
+const program = commander.program   // commander 实例
+program
+  .name("cxxgo")
+  .version('1.0.3')
+  .usage("<command> [options]")
+  .option('-d --debug', "是否开启debug模式", false)  // 配置debug选项，设置默认值为false
+  .option('-e --envName <envName>', "获取环境变量名称")
+  .parse(process.argv)  // 必须，传入解析参数
+```
+基于以上配置，bash种输入`cxxgo --version`，输出结果如下图，其中`--version` 和`--help`是commander默认选项。
+
+<img :src="$withBase('/imgs/cli/commander/basicUsage.png')" style="transform:scale(0.8);">
+
+
+# 注册命令
+
+
+
+
+
+
+
+
+
 
 commander常用命令
 

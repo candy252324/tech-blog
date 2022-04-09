@@ -1,4 +1,4 @@
-# 注册命令
+# 高级定制
 
 先看try-catch 图片。在之前的try catch 里执行执行 registerCommand()
 

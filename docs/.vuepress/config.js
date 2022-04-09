@@ -22,7 +22,7 @@ module.exports = {
           title: 'npm-link 和 lerna', children: ['npm-link', 'learna', 'lerna-principle']
         },
         {
-          title: '前置准备工作', children: [
+          title: '前置检查', children: [
             '/cli/prepare/customLog',
             '/cli/prepare/checkPkgVersion',
             '/cli/prepare/checkEnv',
@@ -33,7 +33,10 @@ module.exports = {
           ]
         },
         {
-          title: 'start', children: ['start']
+          title: 'commander', children: [
+            '/cli/commander/basicUsage',
+            '/cli/commander/customizedUsage'
+          ]
         },
       ],
       "/vue2/": [
