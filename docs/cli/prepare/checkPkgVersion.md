@@ -3,10 +3,7 @@
 思路：发请求拿到最新版本与当前版本进行比较。
 
 存在的问题：
-
-1、 url-join 是ES module, 通过require引入报错
-
-2、sort((a, b) => semver.gt(b, a))  倒序排列不生效(cjh todo)
+sort((a, b) => semver.gt(b, a))  倒序排列不生效(cjh todo)
 
 
 ``` bash

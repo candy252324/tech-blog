@@ -1,5 +1,7 @@
 # 检查环境变量
 
+使用`dotenv`检查环境变量, 保存用户名，密码等敏感信息。
+
 ``` bash
 npm i dotenv path-exists -S  
 ```
