@@ -22,4 +22,11 @@ function checkInputArgs() {
 }
 ```
 
-### 方法一
+### 方法二
+commander 监听
+``` js
+  program.on("option:debug", function () {
+    process.env.LOG_LEVEL = "verbose"
+    log.level = process.env.LOG_LEVEL
+  })
+```
