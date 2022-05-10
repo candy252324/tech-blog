@@ -21,6 +21,16 @@ function observer(obj) {
   })
 }
 
+// 新增属性也要劫持
+function set(obj, key, value) {
+  if (Object.prototype.toString.call(value) === "[object Object]") {
+    observer(value)
+    obj[key] = value  // 必须！！作用是使obj[key]和当前已经被observer的value指向同一个地址
+  } else {
+    defineProperty(obj, key, value)
+  }
+}
+
 /** 数据劫持函数 */
 function defineProperty(obj, key, value) {
   Object.defineProperty(obj, key, {
@@ -51,11 +61,17 @@ index.html文件内容如下：
   <script src="./index3.js"></script>
   <div id="app">hello!</div>
   <script>
-    let obj = { name: 123, age: { larger: 333 } }
+    let obj = { name: "cxx", age: { children: 10 } }
     observer(obj)  // 对obj进行数据劫持
+
     setTimeout(() => {
       obj.name = "new Data!" // 视图将会更新
     }, 1000)
+
+    setTimeout(() => {
+      set(obj, "hobby", { swim: "yes!" })
+      obj.hobby.swim = "set Data!"  // 视图将会更新
+    }, 2000)
   </script>
 </body>
 ```
