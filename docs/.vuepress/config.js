@@ -41,7 +41,12 @@ module.exports = {
       ],
       "/vue2/": [
         {
-          title: '手写一个vue', children: ['/vue2/myVue/hijack', '/vue2/myVue/set', '/vue2/myVue/proxy'],
+          title: '手写一个vue', children: [
+            '/vue2/myVue/hijack',
+            '/vue2/myVue/set',
+            '/vue2/myVue/proxy',
+            '/vue2/myVue/compiler',
+          ],
         },
       ]
     },
