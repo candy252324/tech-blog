@@ -16,4 +16,14 @@
 4、其它任何类型的文件将被当做js文件解析（如在.txt中写js）
 
 
+require 加载路径
+1. 绝对路径 require("/xx/yy/index.js")
+2. 相对路径 require("../index.js")
+3. 加载内置模块require("fs")
+4. 加载node_modules包 require("npmlog")
+
+bash 中可通过node直接运行一段字符串
+```
+node -e "require('./core/index.js')"
+```
 
