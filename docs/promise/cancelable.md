@@ -1,6 +1,22 @@
-# 可终止
+# 可中断
 
-### 一、`throw new Error` 是否能终止promise的链式调用？
+注意这里是中断而不是终止，由于 Promise 没法终止，这个中断的意思是：在合适的时候，把 pending 状态的 promise 给 reject 掉。例如一个常见的应用场景就是但愿给网络请求设置超时时间，一旦超时就就中断(即then回调里的函数不执行了)，咱们这里用定时器模拟一个网络请求，随机 3 秒以内返回：
+``` js
+function timeoutWrapper(p, timeout = 2000) {
+  const wait = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('请求超时')
+    }, timeout)
+  })
+  return Promise.race([p, wait])
+}
+
+const req = timeoutWrapper(request)
+req.then(res => console.log(res)).catch(e => console.log(e))
+```
+
+
+### 一、`throw new Error` 是否能终断promise的链式调用？
 结论，不能。看如下代码：
 ``` js
 const requestTask= ()=>{
