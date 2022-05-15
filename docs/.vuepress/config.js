@@ -12,6 +12,7 @@ module.exports = {
     nav: [
       { text: 'Cli', link: '/cli/' },
       { text: 'Vue2', link: '/vue2/' },
+      { text: 'Promise', link: '/promise/' },
     ],
     sidebar: {
       '/cli/': [
@@ -46,6 +47,13 @@ module.exports = {
             '/vue2/myVue/set',
             '/vue2/myVue/proxy',
             '/vue2/myVue/compiler',
+          ],
+        },
+      ],
+      "/promise/": [
+        {
+          title: 'Promise', children: [
+            '/promise/cancelable',
           ],
         },
       ]
