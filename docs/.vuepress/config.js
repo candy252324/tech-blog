@@ -11,7 +11,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Cli', link: '/cli/' },
-      { text: 'Vue2', link: '/vue2/' },
+      { text: 'Vue', link: '/vue/' },
       { text: 'Promise', link: '/promise/' },
     ],
     sidebar: {
@@ -40,14 +40,14 @@ module.exports = {
           ]
         },
       ],
-      "/vue2/": [
+      "/vue/": [
         {
           title: '手写一个vue', children: [
-            '/vue2/myVue/hijack',
-            '/vue2/myVue/hijackArray',
-            '/vue2/myVue/set',
-            '/vue2/myVue/proxy',
-            '/vue2/myVue/compiler',
+            '/vue/vue2/hijack',
+            '/vue/vue2/hijackArray',
+            '/vue/vue2/set',
+            '/vue/vue2/proxy',
+            '/vue/vue2/compiler',
           ],
         },
       ],

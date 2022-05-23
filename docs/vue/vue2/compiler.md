@@ -118,6 +118,6 @@ class Compiler {
 
 
 看，渲染出来啦！！！
-<img :src="$withBase('/imgs/vue2/my-simple-vue/compiler.png')" style="transform:scale(0.6);">
+<img :src="$withBase('/imgs/vue2/compiler.png')" style="transform:scale(0.6);">
 
 
