@@ -1,4 +1,4 @@
-# 数据劫持
+# 响应式
 
 使用`Object.defineProperty`进行数据劫持, 获取对象属性会触发get, 设置值会触发set。 
 
@@ -71,7 +71,7 @@ index.html文件内容如下：
       el: "#app",
       data: {
         name: "cxx",
-        hobby: {
+          hobby: {
           swim: true
         }
       }
