@@ -42,12 +42,16 @@ module.exports = {
       ],
       "/vue/": [
         {
-          title: '手写一个vue', children: [
-            '/vue/vue2/hijack',
-            '/vue/vue2/hijackArray',
-            '/vue/vue2/set',
+          title: '手写一个vue2', children: [
+            '/vue/vue2/overview',
+            '/vue/vue2/defineReactive',
+            '/vue/vue2/protoArray',
             '/vue/vue2/proxy',
+            '/vue/vue2/observer',
             '/vue/vue2/compiler',
+            '/vue/vue2/watcher',
+            '/vue/vue2/dep',
+            '/vue/vue2/diff',
           ],
         },
       ],

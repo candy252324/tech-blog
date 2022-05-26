@@ -1,28 +1,16 @@
-# 模板编译
+# Compiler
 
 所谓的模板编译，就是遍历根节点，处理插值表达式`{{}}`, `v-bind`,`v-if`,`@click` 等语法。
 实现原理大致是：遍历el元素的所有子节点，判断其节点类型——`nodeType`, 比如`nodeType`为 1 则表示是元素，则去遍历元素上面的所有属性和值，比如 `v-text=name`，则将元素的innerHtml替换为name的值。
 
-这里只演示插值表达式`{{}}`, `v-text` 和 `v-html` 的处理。
+编译过程中每遇到一个响应式数据就实例化一个 Watcher，Watcher的回调函数中通过访问this.xxx数据触发getter, 完成依赖收集。
+
+这里只演示插值表达式`{{}}`, `v-text` , `v-html`,`v-model`,`v-on:click` 的处理。
 
 ``` js
-class MVue {
-  constructor(options) {
-    this.$options = options
-    this.$data = this.$options.data
-    this.$set = this.set
-    new Observer(this.$data)  // 数据劫持
-    this.proxyData(this.$data) // 代理
-+   new Compiler(this.$options.el, this)  // 编译
-  }
-}
-```
-
-以下是Compiler类的定义:
-
-``` js
+import Watcher from './Watcher.mjs'
 /** 模板编译 */
-class Compiler {
+export default class Compiler {
   constructor(el, vm) {
     this.$vm = vm
     this.$el = document.querySelector(el)
@@ -31,13 +19,13 @@ class Compiler {
     }
   }
   compile(el) {
-    // 遍历节点
     el.childNodes.forEach(node => {
-      // 是否是元素
-      if (this.isElement(node)) {
+      // 元素
+      if (node.nodeType === 1) {
         this.compileElement(node)
-      // 是否是文本
-      } else if (this.isText(node)) {
+      }
+      // 是否插值表达式 {{ }}
+      else if (node.nodeType === 3 && /\{\{.*?\}\}/.test(node.textContent)) {
         this.compileText(node)
       }
       if (node.hasChildNodes()) {
@@ -45,79 +33,83 @@ class Compiler {
       }
     })
   }
-  // 处理插值表达式,  "我的名字是{{name}},我的爱好是{{hobby}}" 
+  // 渲染插值表达式,  "我的名字是{{name}},我的爱好是{{hobby}}" 
   compileText(node) {
     let nodeTextStr = node.textContent
     const matchArr = new Set(nodeTextStr.match(/\{\{.*?\}\}/g))  // ["{{name}}","{{hobby}}"] 
     matchArr.forEach(matchStr => {
-      const exp = matchStr.replace(/\{/g, "").replace(/\}/g, "")  // 取到插值里表达式： "name" or "hobby"
-      nodeTextStr = nodeTextStr.replace(new RegExp(matchStr, "g"), this.$vm[exp]) // 将"{{name}}" 替换成"name"的值
+      const cb = (originTextStr) => {
+        matchArr.forEach(matchStr => {
+          const exp = matchStr.replace(/\{/g, "").replace(/\}/g, "").trim()   // 取到插值里表达式： "name" or "hobby"
+          const value = this.$vm[exp]  // 将"{{name}}" 替换成"name"的值
+          originTextStr = originTextStr.replace(new RegExp(matchStr, "g"), typeof (value) === "object" ? JSON.stringify(value) : value)
+        })
+        node.textContent = originTextStr  // 所有的插值表达式都被替换了
+      }
+      // ！！！！注意：Watcher 的回调函数中必须要有 this.xxx 的数据读取操作，用于触发getter，收集依赖
+      // cjh todo 这里有个依赖被重复收集的问题：
+      // new Watcher写在forEach循环中，有n个插值表达式，则循环n次，产生n个watcher实例，到这没有问题
+      // 但是cb函数中也需要通过forEach循环去遍历替换插值表达式，导致产生n次this.xxx的数据读取操作，触发n次getter,进而导致触发n次依赖收集
+      // 如何优化？
+      new Watcher(() => {
+        cb(nodeTextStr)
+      })
     })
-    node.textContent = nodeTextStr
   }
   // 编译元素
   compileElement(node) {
-    let attrList = node.attributes // 元素属性列表
+    let attrList = node.attributes
     Array.from(attrList).forEach(attr => {
       // m-text="name"
-      const attrName = attr.name  //  "m-text"
+      const attrName = attr.name  //  m-text
       const exp = attr.value   //  name
-      if (this.isDirective(attrName)) {
-        const dir = attrName.slice(2)  // text
-        this[dir] && this[dir](node, exp)
+
+      // <button m-onclick="foo"/>
+      if (attrName.match(/m-on:click/) || attrName.match(/@click/)) {
+        const fn = this.$vm.$options.methods[exp]
+        node.addEventListener("click", () => {
+          fn.apply(this.$vm)
+        })
+      }
+      // <span m-bind:title="xxx"></span>
+      else if (attrName.match(/m-bind:/)) {
+        // cjh todo
+      }
+      // <input type="text" v-model="name">
+      else if (attrName.match(/m-model/)) {
+        let tagName = node.tagName.toLowerCase()
+        if (tagName === "input" && node.type === "text") {
+          node.addEventListener("input", (e) => {
+            this.$vm[exp] = e.target.value
+          })
+          new Watcher(() => {
+            node.value = this.$vm[exp]
+          })
+        } else if (tagName === "input" && node.type === "checkbox") {
+          node.addEventListener("input", (e) => {
+            this.$vm[exp] = e.target.checked
+          })
+          new Watcher(() => {
+            node.checked = this.$vm[exp]
+          })
+        } else if (tagName === "select") {
+
+        }
+
+      }
+      // <span m-text="name"></span>
+      else if (attrName.match(/m-text/)) {
+        new Watcher(() => {
+          node.textContent = this.$vm[exp]
+        })
+      }
+      // <span m-html="name"></span>
+      else if (attrName.match(/m-html/)) {
+        new Watcher(() => {
+          node.innerHTML = this.$vm[exp]
+        })
       }
     })
-  }
-  // 渲染v-text 
-  text(node, exp) {
-    node.textContent = this.$vm[exp]
-  }
-  // 渲染v-html
-  html(node, exp) {
-    node.innerHTML = this.$vm[exp]
-  }
-  // 判断是否是指令，如，m-text，m-html
-  isDirective(attrName) {
-    return attrName.indexOf("m-") === 0
-  }
-  // 是否是元素
-  isElement(node) {
-    return node.nodeType === 1
-  }
-  // 是否插值表达式{{}}
-  isText(node) {
-    return node.nodeType === 3 && /\{\{.*?\}\}/.test(node.textContent)
   }
 }
 ```
-
-以下是html:
-
-``` html
-<body>
-  <script src="./MVue.js"></script>
-  <div id="app">
-    <h2>插值表达式：姓名{{name}}，爱好{{hobby}}</h2>
-    <h2>
-      m-text:<span m-text="name"></span>
-    </h2>
-    <h2 m-html="myHtml"></h2>
-  </div>
-  <script>
-    const myvue = new MVue({
-      el: "#app",
-      data: {
-        name: "cxx",
-        myHtml: "<div style='color:red'>渲染v-html</div>",
-        hobby: "swim"
-      }
-    })
-  </script>
-</body>
-```
-
-
-看，渲染出来啦！！！
-<img :src="$withBase('/imgs/vue2/compiler.png')" style="transform:scale(0.6);">
-
-
