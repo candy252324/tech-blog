@@ -42,15 +42,20 @@ module.exports = {
       ],
       "/vue/": [
         {
+          title: '手写一个vue1', children: [
+            '/vue/vue1/overview',
+            '/vue/vue1/defineReactive',
+            '/vue/vue1/protoArray',
+            '/vue/vue1/proxy',
+            '/vue/vue1/observer',
+            '/vue/vue1/compiler',
+            '/vue/vue1/watcher',
+            '/vue/vue1/dep',
+          ],
+        },
+        {
           title: '手写一个vue2', children: [
             '/vue/vue2/overview',
-            '/vue/vue2/defineReactive',
-            '/vue/vue2/protoArray',
-            '/vue/vue2/proxy',
-            '/vue/vue2/observer',
-            '/vue/vue2/compiler',
-            '/vue/vue2/watcher',
-            '/vue/vue2/dep',
             '/vue/vue2/diff',
           ],
         },

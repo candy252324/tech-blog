@@ -2,9 +2,6 @@
 
 使用`Object.defineProperty`进行数据劫持, 获取对象属性会触发 getter, 设置值会触发setter。在 getter 中进行依赖收集，在setter 中通知更新。
 
-**注：该属性不支持IE8及其更低版本的浏览器。**
-
-
 这里有个子依赖的收集过程，什么是子依赖？
 
 比如数据`{ myArr:[1,2,3] }`，当我们执行this.myArr=[100] 时，会触发setter,从而调用 `dep.notify()` 通知更新。
