@@ -51,11 +51,16 @@ module.exports = {
             '/vue/vue1/compiler',
             '/vue/vue1/watcher',
             '/vue/vue1/dep',
+            '/vue/vue1/problem',
           ],
         },
         {
           title: '手写一个vue2', children: [
             '/vue/vue2/overview',
+            '/vue/vue2/renderHelper',
+            '/vue/vue2/renderFn',
+            '/vue/vue2/mountComponent',
+            '/vue/vue2/patch',
             '/vue/vue2/diff',
           ],
         },
