@@ -6,13 +6,14 @@ module.exports = {
   ],
   base: '/tech-blog/',
   markdown: {
-    lineNumbers: false // 代码块显示行号
+    lineNumbers: true // 代码块显示行号
   },
   themeConfig: {
     nav: [
       { text: 'Cli', link: '/cli/' },
       { text: 'Vue', link: '/vue/' },
       { text: 'Promise', link: '/promise/' },
+      { text: '其它', link: '/mess/' },
     ],
     sidebar: {
       '/cli/': [
@@ -71,6 +72,10 @@ module.exports = {
             '/promise/cancelable',
           ],
         },
+      ],
+      "/mess/": [
+        '/mess/priorityLevel',
+        '/mess/jsonStringify',
       ]
     },
     sidebarDepth: 2,
