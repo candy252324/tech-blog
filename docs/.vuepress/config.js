@@ -6,7 +6,7 @@ module.exports = {
   ],
   base: '/tech-blog/',
   markdown: {
-    lineNumbers: true // 代码块显示行号
+    lineNumbers: false // 代码块显示行号
   },
   themeConfig: {
     nav: [
@@ -62,6 +62,7 @@ module.exports = {
             '/vue/vue2/renderFn',
             '/vue/vue2/mountComponent',
             '/vue/vue2/patch',
+            '/vue/vue2/slot',
             '/vue/vue2/diff',
           ],
         },

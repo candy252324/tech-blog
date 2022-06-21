@@ -8,6 +8,7 @@ patch 方法用于生成真实 dom，它接收两个参数 —— 旧vnode 和 �
 - **存在旧 vnode，且存在 `oldVnode.nodeType`, 说明是真实节点，走根节点首次渲染逻辑**
  > 调用`createElm`方法，该方法主要功能是创建真实dom元素，
 - **存在旧 vnode，但不存在 `oldVnode.nodeType`，则说明是更新，走更新逻辑**
+ > 更新逻辑中涉及 diff 算法，后面有专门的章节讲。
 
 ``` js
 export default function patch(oldVnode, vnode) {
@@ -79,7 +80,7 @@ function createElm(vnode, parent, referNode) {
   }
 }
 ```
-## 自定义组件挂载
+### 自定义组件挂载
 
 看一下自定义组件是怎么创建的，这里为了实现方便，直接通过vnode拿到子组件的信息，new 了一个子组件实例，然后通过调用`$mount`手动进行挂载。
 ```js

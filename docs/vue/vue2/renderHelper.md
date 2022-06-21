@@ -1,6 +1,6 @@
 # 辅助函数renderHelper
 
-renderHelper是为了在 vue 实例上挂载 `_c`、`_v`、`_s`等方法。
+renderHelper是为了在 vue 实例上挂载 `_c`、`_v`、`_s`(处理字面量表达式返回结果字符串)、`_t`(生成插槽vnode)等方法。
 
 这里只讲`_c` 和`_v`。
 
