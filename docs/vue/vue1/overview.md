@@ -1,7 +1,6 @@
 
 # 整体思路
 
-[本项目github 地址](https://github.com/candy252324/MVue1.git)
 
 数据响应式的核心原理是`Object.defineProperty`。
 

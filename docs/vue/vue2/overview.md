@@ -1,6 +1,5 @@
 # 整体思路
 
-[本项目github 地址](https://github.com/candy252324/MVue2.git)
 
 **Vue2 通过降低 Watcher 的粒度，一个组件对应一个 Watcher (渲染Watcher)来解决Vue1 Watcher 太多导致的资源占用过多，性能下降问题**。
 
