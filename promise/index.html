@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>讲一些promise的高级用法 | 先放番茄后放蛋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/tech-blog/logo.jpg">
+    <meta name="description" content="对吗？试试就知道了">
+    
+    <link rel="preload" href="/tech-blog/assets/css/0.styles.db583378.css" as="style"><link rel="preload" href="/tech-blog/assets/js/app.19bb264b.js" as="script"><link rel="preload" href="/tech-blog/assets/js/2.b3ff26a2.js" as="script"><link rel="preload" href="/tech-blog/assets/js/28.2e299673.js" as="script"><link rel="prefetch" href="/tech-blog/assets/js/10.34184dd2.js"><link rel="prefetch" href="/tech-blog/assets/js/11.f38b19bd.js"><link rel="prefetch" href="/tech-blog/assets/js/12.b3d45e84.js"><link rel="prefetch" href="/tech-blog/assets/js/13.d08fcb5e.js"><link rel="prefetch" href="/tech-blog/assets/js/14.05ef8ca2.js"><link rel="prefetch" href="/tech-blog/assets/js/15.3c58bfd7.js"><link rel="prefetch" href="/tech-blog/assets/js/16.e2fdb231.js"><link rel="prefetch" href="/tech-blog/assets/js/17.a2d5fd51.js"><link rel="prefetch" href="/tech-blog/assets/js/18.14af08ea.js"><link rel="prefetch" href="/tech-blog/assets/js/19.359f98ba.js"><link rel="prefetch" href="/tech-blog/assets/js/20.f42afe14.js"><link rel="prefetch" href="/tech-blog/assets/js/21.9fdb01a8.js"><link rel="prefetch" href="/tech-blog/assets/js/22.09c24441.js"><link rel="prefetch" href="/tech-blog/assets/js/23.c1fc199c.js"><link rel="prefetch" href="/tech-blog/assets/js/24.b070b8e2.js"><link rel="prefetch" href="/tech-blog/assets/js/25.c1b65737.js"><link rel="prefetch" href="/tech-blog/assets/js/26.8238eb31.js"><link rel="prefetch" href="/tech-blog/assets/js/27.ed356e80.js"><link rel="prefetch" href="/tech-blog/assets/js/29.1b477a90.js"><link rel="prefetch" href="/tech-blog/assets/js/3.0b0b7df8.js"><link rel="prefetch" href="/tech-blog/assets/js/30.fc8acabc.js"><link rel="prefetch" href="/tech-blog/assets/js/31.ea390764.js"><link rel="prefetch" href="/tech-blog/assets/js/32.354d1598.js"><link rel="prefetch" href="/tech-blog/assets/js/33.e717836d.js"><link rel="prefetch" href="/tech-blog/assets/js/34.27f799cd.js"><link rel="prefetch" href="/tech-blog/assets/js/35.414a04cc.js"><link rel="prefetch" href="/tech-blog/assets/js/36.c407fba5.js"><link rel="prefetch" href="/tech-blog/assets/js/37.ed81f337.js"><link rel="prefetch" href="/tech-blog/assets/js/38.89770233.js"><link rel="prefetch" href="/tech-blog/assets/js/39.d1c0c117.js"><link rel="prefetch" href="/tech-blog/assets/js/4.ab349c03.js"><link rel="prefetch" href="/tech-blog/assets/js/40.c5489636.js"><link rel="prefetch" href="/tech-blog/assets/js/41.be03117f.js"><link rel="prefetch" href="/tech-blog/assets/js/42.e1e3bc9a.js"><link rel="prefetch" href="/tech-blog/assets/js/43.6f82f964.js"><link rel="prefetch" href="/tech-blog/assets/js/44.230c454e.js"><link rel="prefetch" href="/tech-blog/assets/js/45.9dd4fc8a.js"><link rel="prefetch" href="/tech-blog/assets/js/46.9be0afec.js"><link rel="prefetch" href="/tech-blog/assets/js/5.7b4adc34.js"><link rel="prefetch" href="/tech-blog/assets/js/6.d0537508.js"><link rel="prefetch" href="/tech-blog/assets/js/7.24ec72cc.js"><link rel="prefetch" href="/tech-blog/assets/js/8.99d43fd4.js"><link rel="prefetch" href="/tech-blog/assets/js/9.1ae3dbbc.js">
+    <link rel="stylesheet" href="/tech-blog/assets/css/0.styles.db583378.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/tech-blog/" class="home-link router-link-active"><!----> <span class="site-name">先放番茄后放蛋</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/tech-blog/cli/" class="nav-link">
+  Cli
+</a></div><div class="nav-item"><a href="/tech-blog/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/tech-blog/promise/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Promise
+</a></div><div class="nav-item"><a href="/tech-blog/mess/" class="nav-link">
+  其它
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/tech-blog/cli/" class="nav-link">
+  Cli
+</a></div><div class="nav-item"><a href="/tech-blog/vue/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/tech-blog/promise/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Promise
+</a></div><div class="nav-item"><a href="/tech-blog/mess/" class="nav-link">
+  其它
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Promise</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tech-blog/promise/cancelable.html" class="sidebar-link">可中断</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="讲一些promise的高级用法"><a href="#讲一些promise的高级用法" class="header-anchor">#</a> 讲一些promise的高级用法</h1></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/tech-blog/assets/js/app.19bb264b.js" defer></script><script src="/tech-blog/assets/js/2.b3ff26a2.js" defer></script><script src="/tech-blog/assets/js/28.2e299673.js" defer></script>
+  </body>
+</html>
