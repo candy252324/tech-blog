@@ -30,7 +30,7 @@ export default function patch(oldVnode, vnode) {
       // 移除老的vNode(模板节点)  
       parent.removeChild(oldVnode)
     } else {
-      // 更新
+      // 更新 (更新逻辑中涉及diff算法，后面讲)
       console.log("update!")
     }
   }
