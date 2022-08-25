@@ -64,13 +64,26 @@ module.exports = {
             '/vue/vue2/patch',
             '/vue/vue2/slot',
             '/vue/vue2/diff',
+            '/vue/vue2/computed',
           ],
         },
       ],
       "/promise/": [
         {
+          title: '手写Promise', children: [
+            '/promise/myPromise/basic',
+            '/promise/myPromise/status',
+            '/promise/myPromise/value',
+            '/promise/myPromise/asyncFn',
+            '/promise/myPromise/callTime',
+            '/promise/myPromise/callChaining',
+          ],
+        },
+        {
           title: 'Promise', children: [
-            '/promise/cancelable',
+            '/promise/realPromise/cancelable',
+            '/promise/realPromise/axiosCancel',
+            '/promise/realPromise/throwError',
           ],
         },
       ],
