@@ -78,6 +78,7 @@ module.exports = {
             '/promise/myPromise/callTime',
             '/promise/myPromise/multipleCall',
             '/promise/myPromise/callChaining',
+            '/promise/myPromise/test',
           ],
         },
         {
