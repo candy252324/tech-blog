@@ -116,6 +116,16 @@ function updateChildren(ch, oldCh) {
 }
 ```
 
+```js
+/**
+ * 判断两个节点是否相同
+ * 这里的判读比较简单，只做了 key 和 标签的比较
+ */
+function sameVNode(n1, n2) {
+  return n1.key == n2.key && n1.tag === n2.tag
+}
+```
+
 举个具体的例子描述一下这个双端比较过程：
 
 假设新 vnode 是 a => b => c => d
