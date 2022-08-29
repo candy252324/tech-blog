@@ -76,6 +76,7 @@ module.exports = {
             '/promise/myPromise/value',
             '/promise/myPromise/asyncFn',
             '/promise/myPromise/callTime',
+            '/promise/myPromise/multipleCall',
             '/promise/myPromise/callChaining',
           ],
         },
