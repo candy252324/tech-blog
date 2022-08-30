@@ -43,7 +43,7 @@ module.exports = {
       ],
       "/vue/": [
         {
-          title: '手写一个vue1', children: [
+          title: '手写vue1', children: [
             '/vue/vue1/overview',
             '/vue/vue1/defineReactive',
             '/vue/vue1/protoArray',
@@ -56,7 +56,7 @@ module.exports = {
           ],
         },
         {
-          title: '手写一个vue2', children: [
+          title: '手写vue2', children: [
             '/vue/vue2/overview',
             '/vue/vue2/renderHelper',
             '/vue/vue2/renderFn',
@@ -67,6 +67,11 @@ module.exports = {
             '/vue/vue2/computed',
           ],
         },
+        {
+          title: '使用vue遇到过的问题', children: [
+            '/vue/problems/idxAsKey',
+          ]
+        }
       ],
       "/promise/": [
         {
@@ -82,7 +87,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Promise', children: [
+          title: '常见问题', children: [
             '/promise/realPromise/cancelable',
             '/promise/realPromise/axiosCancel',
             '/promise/realPromise/throwError',
@@ -90,7 +95,7 @@ module.exports = {
         },
       ],
       "/mess/": [
-        '/mess/priorityLevel',
+        // '/mess/priorityLevel',
         '/mess/jsonStringify',
       ]
     },
