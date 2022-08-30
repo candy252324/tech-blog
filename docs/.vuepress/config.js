@@ -87,7 +87,7 @@ module.exports = {
           ],
         },
         {
-          title: '常见问题', children: [
+          title: 'Promise常见问题', children: [
             '/promise/realPromise/cancelable',
             '/promise/realPromise/axiosCancel',
             '/promise/realPromise/throwError',
