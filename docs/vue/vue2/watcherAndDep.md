@@ -70,6 +70,7 @@ new Vue({
 })
 ```
 则会生成 4 个 dep ，5 个 watcher ：
+> tips: “5 个 watcher” 的表述其实不太准确，因为 watcher 是引用类型，dep1 和 dep2 的根组件渲染 watcher 其实是同一个，dep3 和 dep4 子组件渲染 watcher 也是指向同一个 watcher 实例。
 
 dep1: 根组件 name 的依赖，里面只有一个根组件的渲染 watcher
 

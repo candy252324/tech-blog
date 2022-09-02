@@ -12,6 +12,7 @@ module.exports = {
     nav: [
       { text: 'Cli', link: '/cli/' },
       { text: 'Vue', link: '/vue/' },
+      // { text: 'webpack', link: '/webpack/' },
       { text: 'Promise', link: '/promise/' },
       { text: '其它', link: '/mess/' },
     ],
@@ -52,6 +53,8 @@ module.exports = {
             '/vue/vue1/compiler',
             '/vue/vue1/watcher',
             '/vue/vue1/dep',
+            '/vue/vue1/watcherAndDep',
+            '/vue/vue1/vModel',
             '/vue/vue1/problem',
           ],
         },
@@ -65,14 +68,28 @@ module.exports = {
             '/vue/vue2/slot',
             '/vue/vue2/diff',
             '/vue/vue2/computed',
+            '/vue/vue2/watcherAndDep',
+            '/vue/vue2/vModel',
+          ],
+        },
+        {
+          title: '手写vue3', children: [
+            '/vue/vue3/overview',
           ],
         },
         {
           title: '使用vue遇到过的问题', children: [
             '/vue/problems/idxAsKey',
           ]
-        }
-      ],
+        }],
+      // "/webpack/": [
+      //   {
+      //     title: '手写webpack', children: [
+      //       '/webpack/myWebpack/overview',
+      //     ],
+      //   },
+      // ],
+
       "/promise/": [
         {
           title: '手写Promise', children: [
