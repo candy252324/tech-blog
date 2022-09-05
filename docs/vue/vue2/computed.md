@@ -61,6 +61,7 @@ export default class Watcher {
   }
   update() {
     // 当响应式数据更新时，执行_cb函数，更新dom
+    // 注：这里暂时没有使用异步更新队列，简单用promise实现
     Promise.resolve().then(() => {
       this._cb()
     })
