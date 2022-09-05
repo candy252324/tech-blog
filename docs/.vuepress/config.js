@@ -53,8 +53,6 @@ module.exports = {
             '/vue/vue1/compiler',
             '/vue/vue1/watcher',
             '/vue/vue1/dep',
-            '/vue/vue1/watcherAndDep',
-            '/vue/vue1/vModel',
             '/vue/vue1/problem',
           ],
         },
@@ -69,8 +67,6 @@ module.exports = {
             '/vue/vue2/diff',
             '/vue/vue2/computed',
             '/vue/vue2/asyncUpdateQueue',
-            '/vue/vue2/watcherAndDep',
-            '/vue/vue2/vModel',
           ],
         },
         {
@@ -79,8 +75,10 @@ module.exports = {
           ],
         },
         {
-          title: '使用vue遇到过的问题', children: [
+          title: 'vue常见问题', children: [
             '/vue/problems/idxAsKey',
+            '/vue/problems/vModel',
+            '/vue/problems/watcherAndDep',
           ]
         }],
       // "/webpack/": [

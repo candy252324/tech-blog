@@ -1,5 +1,28 @@
 # watcher和dep的关系
 
+## vue1
+
+
+我们知道，data 中每一个 key 都对应有一个 dep 实例。
+
+假设有如下代码：
+```html
+<div id="app">
+  <div>{{name}}</div>
+  <div>{{name}}</div>
+  <div>{{name}}</div>
+  <div>{{hobby}}</div>
+</div>
+```
+
+以上代码会生成两个dep实例，其中 dep1 数组中放的是 name 的依赖，其中有三个 watcher，因为字符串模板中有 3 处name 的依赖； dep2 中放的是 hobby 的依赖，其中只有一个 watcher。
+
+<img :src="$withBase('/imgs/myvue/vue1-dep-and-watcher.png')" style="transform:scale(0.8);">
+
+当 name 变化时，循环 dep1, 依次执行 3 个 watcher 回调，挨个更新 3 个依赖name属性的dom节点。
+
+## vue2 
+
 vue2 和 vue1 一样，data 中每一个 key 都对应有一个 dep 实例。此外，每个组件对应一个渲染 watcher，计算属性也有 watcher。（注：还有用户自己定义的 watch 方法，这里没涉及）
 
 假设有如下代码：
@@ -79,7 +102,6 @@ dep2: 根组件 count 的依赖，里面有两个 watcher ，分别是根组件�
 dep3: 子组件 address 的依赖，里面只有一个子组件`<comp/>`的渲染 watcher
 
 dep4: 子组件 hobby 的依赖，里面只有一个子组件`<comp/>`的渲染 watcher
-
 
 
 
