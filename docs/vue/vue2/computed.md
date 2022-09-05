@@ -122,5 +122,5 @@ export default class Watcher {
 - 6. 第二次引用又触发`defineComputed`里的 getter ，此时 dirty 为 false，直接返回之前的计算结果
 - 7. 最后执行 cb2
 
-> cjh todo
-这里实现的有点问题，第 5 步中执行`watcher.evalute()` 其实最终就是执行了 cb2，但是第 7 步又执行了一遍 cb2， 导致 cb2 被执行了两遍。
+> 提示：
+这里目前有点问题，第 5 步中执行`watcher.evalute()` 其实最终就是执行了 cb2，但是第 7 步又执行了一遍 cb2， 导致 cb2 被执行了两遍。没关系，等实现异步更新队列之后就好了。

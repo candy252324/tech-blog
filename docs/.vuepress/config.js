@@ -68,6 +68,7 @@ module.exports = {
             '/vue/vue2/slot',
             '/vue/vue2/diff',
             '/vue/vue2/computed',
+            '/vue/vue2/asyncUpdateQueue',
             '/vue/vue2/watcherAndDep',
             '/vue/vue2/vModel',
           ],
