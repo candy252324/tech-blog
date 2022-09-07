@@ -113,6 +113,8 @@ module.exports = {
       "/mess/": [
         // '/mess/priorityLevel',
         '/mess/jsonStringify',
+        '/mess/browserslist',
+        // '/mess/setTimeoutParam3'
       ]
     },
     sidebarDepth: 2,
