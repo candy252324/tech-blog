@@ -14,6 +14,7 @@ module.exports = {
       { text: 'Vue', link: '/vue/' },
       // { text: 'webpack', link: '/webpack/' },
       { text: 'Promise', link: '/promise/' },
+      { text: '0 -> 1', link: '/zeroToOne/' },
       { text: '其它', link: '/mess/' },
     ],
     sidebar: {
@@ -109,6 +110,11 @@ module.exports = {
             '/promise/realPromise/throwError',
           ],
         },
+      ],
+      "/zeroToOne/": [
+        '/zeroToOne/init',
+        '/zeroToOne/browserslist',
+        '/zeroToOne/loadFile',
       ],
       "/mess/": [
         // '/mess/priorityLevel',
