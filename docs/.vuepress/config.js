@@ -114,7 +114,7 @@ module.exports = {
       "/zeroToOne/": [
         '/zeroToOne/init',
         '/zeroToOne/browserslist',
-        '/zeroToOne/loadFile',
+        '/zeroToOne/loader',
       ],
       "/mess/": [
         // '/mess/priorityLevel',

@@ -1,8 +1,8 @@
-# 资源处理
+# loader
 
 webpack只能处理 js，非 js 文件需要特定的 loader 来处理，这里只举几个例子，遇到其它文件类型添加对应的 loader 的就行。
 
-## css
+## .css
 
 在 src/index.js 中引入样式文件，发现无法打包成功，需要引入 `style-loader` 和 `css-loader`。
 
@@ -87,7 +87,30 @@ module.exports = {
 
 
 
+## .less/.sass
+ 
+如果项目使用 less： `yarn add less less-loader`
 
+如果项目使用 sass： `yarn add sass sass-loader`
+
+然后增加 webpack 配置即可
+```js
+module.exports = {
+  ...
+  module: {
+    rules: [
+       {
+        test: /\.less$/i,
+        use: ["style-loader", "css-loader", "postcss-loader", "less-loader"]
+      },
+      // {
+      //   test: /\.scss$/i,
+      //   use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
+      // },
+    ]
+  }
+}
+```
 
 ## 图片
 
@@ -137,18 +160,37 @@ type 一共有四个值：
 - `type: 'asset/source'`  文档上说导出资源的源代码， 试了没啥反应？（cjh todo）
 - `type: 'asset'` 在导出一个 data URI 和发送一个单独的文件之间自动选择
 
-## fonts 
+## .vue
 
-[ Asset Modules](https://webpack.docschina.org/guides/asset-modules/) 可以接收并加载任何文件，也包括字体。
+处理 vue 文件 需要同时用到 `vue-loader` 和 `vue-template-compiler`。
 
-增加 webpack rules 配置：
+[官网文档](https://vue-loader.vuejs.org/zh/guide/#vue-cli)中有以下描述：
+
+ <img :src="$withBase('/imgs/zeroToOne/vue-loader.png')">
+
+ 所以先安装这两个依赖：
+
+ `yarn add vue-loader vue-template-compiler -D`
+
+Vue Loader 的配置和其它的 loader 不太一样。除了通过一条规则将 vue-loader 应用到所有扩展名为 .vue 的文件上之外，还需要确保添加 Vue Loader 的插件 —— VueLoaderPlugin。
+
+**这个插件是必须的！** 它的职责是将你定义过的其它规则复制并应用到 .vue 文件里相应语言的块。例如，如果你有一条匹配 `/\.js$/` 的规则，那么它会应用到 `.vue` 文件里的 `<script>` 块，如果你 css 配置了 postcss 用于添加前缀，那么这也将应用到 `.vue` 文件里的 `<style>` 块。
+
+webpack 中新增如下配置就可以了：
+
 ```js
+const { VueLoaderPlugin } = require("vue-loader")
 module.exports = {
+  ...
    module: {
+    plugins: [
+      new VueLoaderPlugin(), // 配合 vue-loader 使用
+    ],
     rules:[
+      ...
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset',  // `type: 'asset'` 在导出一个 data URI 和发送一个单独的文件之间自动选择
+        test: /\.vue$/i,
+        use: ["vue-loader"]
       },
     ]
    }
