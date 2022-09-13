@@ -78,6 +78,7 @@ module.exports = {
         {
           title: 'vue常见问题', children: [
             '/vue/problems/idxAsKey',
+            '/vue/problems/computedCauseSlowly',
             '/vue/problems/vModel',
             '/vue/problems/watcherAndDep',
           ]
