@@ -94,7 +94,7 @@ export default class Watcher {
 - 首先，读取计算属性触发`defineComputed`里的 getter ，此时 dirty 为 true，于是执行`watcher.evalute()`
 - 然后，`Dep.target`被赋值为`this`（此时 this 指向计算属性的 watcher 实例）
 - 之后执行计算属性的回调函数 cb，由于cb 中存在 data 的读取（`this.count * 2`），于是触发 data 的 `Object.defineProperty`的 getter
-- getter 中 判断当前`Dep.target` 有值（执行当前），便进行了依赖收集。
+- getter 中 判断当前`Dep.target` 有值（指向当前计算属性 watcher 实例），便进行了依赖收集。
 
 
 
