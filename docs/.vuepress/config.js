@@ -157,6 +157,7 @@ module.exports = {
       "/mess/": [
         // '/mess/priorityLevel',
         '/mess/jsonStringify',
+        '/mess/requireAndImport',
         // '/mess/setTimeoutParam3'
       ]
     },
