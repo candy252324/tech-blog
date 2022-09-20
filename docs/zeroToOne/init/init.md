@@ -1,16 +1,17 @@
-# 项目初始化
+# 目录结构
 
 `npm init` 生成 package.json 文件
 
 `yarn add webpack webpack-cli --save-dev` 安装 webpack 依赖
 
-目录配置, 之后的构建相关内容都会放到 build 文件夹中
+构建相关内容放到 build 目录下，打包输出放到 dist 目录下
 ```
 project-name
 |- package.json
 |- /build  
   |- build.js
   |- webpack.config.js
+|- /dist
 |- /src
   |- index.js
 |- /node_modules

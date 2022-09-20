@@ -114,14 +114,48 @@ module.exports = {
         },
       ],
       "/zeroToOne/": [
-        '/zeroToOne/init',
-        '/zeroToOne/browserslist',
-        '/zeroToOne/loader',
+        {
+          title: "项目初始化", children: [
+            '/zeroToOne/init/init',
+            '/zeroToOne/init/browserslist',
+          ]
+        },
+        {
+          title: "loader", children: [
+            '/zeroToOne/loader/loaderIndex',
+            '/zeroToOne/loader/css',
+            '/zeroToOne/loader/less',
+            '/zeroToOne/loader/image',
+            '/zeroToOne/loader/vue',
+            '/zeroToOne/loader/ts',
+          ]
+        },
+        {
+          title: "babel", children: [
+            '/zeroToOne/babel/babelIndex',
+          ]
+        },
+        {
+          title: "其它webpack配置", children: [
+            '/zeroToOne/webpack/alias',
+            '/zeroToOne/webpack/publicPath',
+            '/zeroToOne/webpack/htmlWebpackPlugin',
+          ]
+        },
+        {
+          title: "代码风格", children: [
+            '/zeroToOne/codeFormat/lintAndFormat',
+          ]
+        },
+        {
+          title: "preCommit", children: [
+            '/zeroToOne/preCommit/husky',
+          ]
+        },
       ],
       "/mess/": [
         // '/mess/priorityLevel',
         '/mess/jsonStringify',
-        '/mess/browserslist',
         // '/mess/setTimeoutParam3'
       ]
     },
