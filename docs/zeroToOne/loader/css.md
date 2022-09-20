@@ -1,4 +1,4 @@
-# css
+# .css
 
 
 在项目中引入样式文件`import "./xxx.css"`，发现无法打包成功，需要添加处理 css 文件的 loader。

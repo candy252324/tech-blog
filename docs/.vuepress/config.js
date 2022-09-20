@@ -115,9 +115,10 @@ module.exports = {
       ],
       "/zeroToOne/": [
         {
-          title: "项目初始化", children: [
-            '/zeroToOne/init/init',
-            '/zeroToOne/init/browserslist',
+          title: "基础配置", children: [
+            '/zeroToOne/base/init',
+            '/zeroToOne/base/env',
+            '/zeroToOne/base/browserslist',
           ]
         },
         {

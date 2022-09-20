@@ -1,4 +1,4 @@
-# browserslist 配置
+# browserslist
 
 package.json 中增加 browserslist 配置。
 
