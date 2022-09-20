@@ -8,7 +8,7 @@
 - `sass-loader` 将 sass 处理成 css
 
 其它配置和处理 css 的一样，配置完就可以写 css 嵌套语法，样式变量等等了。
-<!-- cjh todo 导出路径未生效 -->
+
 ```js
 module.exports = {
   ...
@@ -17,9 +17,6 @@ module.exports = {
        {
         test: /\.less$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
-        generator: {
-          filename: 'static/css/[name]-[hash:8][ext]',
-        },
       },
     ]
   }

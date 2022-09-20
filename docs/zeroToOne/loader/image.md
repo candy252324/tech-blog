@@ -24,6 +24,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset',  // `type: 'asset'` 在导出一个 data URI 和发送一个单独的文件之间自动选择
+        generator: {
+          filename: 'static/img/[name]-[id][ext]',  // 配置图片资源输出路径
+        },
       },
     ]
    }

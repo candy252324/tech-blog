@@ -118,6 +118,7 @@ module.exports = {
           title: "基础配置", children: [
             '/zeroToOne/base/init',
             '/zeroToOne/base/env',
+            '/zeroToOne/base/outputPath',
             '/zeroToOne/base/browserslist',
           ]
         },

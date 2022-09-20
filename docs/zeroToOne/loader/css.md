@@ -37,15 +37,15 @@ module.exports = {
 同时我们不再需要`style-loader`了，把它移除掉：`yarn remove style-loader`
 
 修改  webpack 配置：
-<!-- cjh todo css 导出路径并未生效 -->
+
 ```js
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   ...
   plugins:[
-     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].css',
-      chunkFilename: 'static/css/[id].css',
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].css',  // 主 css 文件名字
+      chunkFilename: 'static/css/[name]-[id].css',  // 异步加载的 css 输出路径
       ignoreOrder: true,
     }),
   ],
