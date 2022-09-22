@@ -43,7 +43,7 @@ export default {
 
 ## viewbox
 
-画图理解一下 svg 标签属性上的 `width`、`height`和`viewbox`是如何影响 svg 图标的大小的。
+讲一下 svg 标签属性上的 `width`、`height`和`viewbox`是如何影响 svg 图标的大小的。
 
 首先用 svg 画一个长宽皆为 300 的正方形，并加上蓝色边框
 ```html
@@ -86,6 +86,9 @@ export default {
 比较形象的比喻是头像裁剪，`viewbox`就是那个裁剪框，裁剪完之后再平铺到之前的画布上。
 
 <img :src="$withBase('/imgs/mess/svg-viewbox5.png')"/>
+
+<!-- cjh todo -->
+注：本文演示的画布和`viewBox`都是正方形，缩放比例很好计算，但是如果是长方形渲染结果有点出人意料，之后有时间再深究
 
 
 
