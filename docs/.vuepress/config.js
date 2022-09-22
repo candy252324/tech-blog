@@ -159,6 +159,7 @@ module.exports = {
         // '/mess/priorityLevel',
         '/mess/jsonStringify',
         '/mess/requireAndImport',
+        '/mess/svg',
         // '/mess/setTimeoutParam3'
       ]
     },
