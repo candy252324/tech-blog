@@ -160,6 +160,7 @@ module.exports = {
         '/mess/jsonStringify',
         '/mess/requireAndImport',
         '/mess/svg',
+        '/mess/changeTheme',
         // '/mess/setTimeoutParam3'
       ]
     },
