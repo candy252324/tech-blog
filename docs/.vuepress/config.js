@@ -134,7 +134,15 @@ module.exports = {
         },
         {
           title: "babel", children: [
-            '/zeroToOne/babel/babelIndex',
+            '/zeroToOne/babel/overView',
+            '/zeroToOne/babel/babelConfigFile',
+            '/zeroToOne/babel/coreJs',
+            '/zeroToOne/babel/presetEnv',
+            '/zeroToOne/babel/babelPolyfill',
+            '/zeroToOne/babel/babelRuntime',
+            '/zeroToOne/babel/pluginTransformRuntime',
+            '/zeroToOne/babel/summary',
+            '/zeroToOne/babel/myConfig',
           ]
         },
         {
@@ -161,6 +169,7 @@ module.exports = {
         '/mess/requireAndImport',
         '/mess/svg',
         '/mess/changeTheme',
+        '/mess/lessAndSass',
         // '/mess/setTimeoutParam3'
       ]
     },

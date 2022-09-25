@@ -13,11 +13,23 @@
 同样，需要写 n 份雷同的样式代码，难以维护
 
 ## 方案 3：css3 var() 函数
+
+定义全局变量：
+```css
+:root {
+  --primary-color: blue;
+  --main-padding: 8px;
+}
+```
+>注：`:root`是 CSS 伪类，匹配文档树的根元素。除了优先级更高之外，与 html 选择器相同。
+
+使用变量：
 ```css
 .box{
   background: var(--primary-color);  
 }
 ```
+改变变量的值：
 ```js
 /**
  * @param val  颜色值
