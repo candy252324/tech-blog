@@ -2,6 +2,24 @@
 
 babel是一个包含语法转换等诸多功能的工具链，通过这个工具链的使用可以使低版本的浏览器兼容最新的 javascript 语法。
 
+`yarn add babel-loader @babel/core -D`
+
+增加 webpack 配置如下：
+```js
+// webpack.config.js
+module.exports={
+  ...
+  module:{
+    rule:[
+      {
+        test:/\.m?jsx?/i,
+        use:["babel-loader"]
+      }
+    ]
+  }
+}
+```
+
 - `@babel/core`
 
 `@babel/core`是 babel 的核心库，所有的核心 Api 都在这个库里，这些 Api 供 `babel-loader` 调用
@@ -24,6 +42,13 @@ function babelLoader(sourceCode, options) {
   return targetCode;
 }
 ```
+
+
+babel 运行总共分为三个阶段：**解析**、**转换**、**生成**。
+
+babel 自 6.0 起，就不再对代码进行 transform，现在只负责 parse 和 generate 过程，代码的 transform 过程全都交给一个个 plugin 去做。所以在没有配置任何plugin的情况下，经过babel输出的代码是没有改变的。
+
+
 
 
 

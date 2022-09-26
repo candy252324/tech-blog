@@ -141,8 +141,7 @@ module.exports = {
             '/zeroToOne/babel/babelPolyfill',
             '/zeroToOne/babel/babelRuntime',
             '/zeroToOne/babel/pluginTransformRuntime',
-            '/zeroToOne/babel/summary',
-            '/zeroToOne/babel/myConfig',
+            '/zeroToOne/babel/summary'
           ]
         },
         {
