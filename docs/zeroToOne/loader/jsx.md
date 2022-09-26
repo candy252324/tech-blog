@@ -1,4 +1,4 @@
-# .jsx
+# .m?jsx?
 
 在 vue 中我们可以写 `jsx` 语法：
 
@@ -8,7 +8,6 @@ import { defineComponent } from "vue"
 export default defineComponent({
   props: ["name"],
   setup(props) {
-    console.log(props)
     return () => <div>jsx组件，{props.name}</div>
   }
 })
@@ -42,3 +41,4 @@ module.exports={
 }
 ```
 
+其他关于 js 的兼容性配置相关在 babel 章节中讲。

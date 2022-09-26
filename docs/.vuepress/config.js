@@ -129,8 +129,8 @@ module.exports = {
             '/zeroToOne/loader/less',
             '/zeroToOne/loader/image',
             '/zeroToOne/loader/vue',
-            '/zeroToOne/loader/ts',
             '/zeroToOne/loader/jsx',
+            '/zeroToOne/loader/ts',
           ]
         },
         {
