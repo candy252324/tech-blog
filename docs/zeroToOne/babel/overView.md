@@ -4,7 +4,6 @@ babel是一个包含语法转换等诸多功能的工具链，通过这个工具
 
 `yarn add babel-loader @babel/core -D`
 
-增加 webpack 配置如下：
 ```js
 // webpack.config.js
 module.exports={
@@ -12,7 +11,7 @@ module.exports={
   module:{
     rule:[
       {
-        test:/\.m?jsx?/i,
+        test:/\.m?jsx?$/i,
         use:["babel-loader"]
       }
     ]

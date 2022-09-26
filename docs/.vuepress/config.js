@@ -130,6 +130,7 @@ module.exports = {
             '/zeroToOne/loader/image',
             '/zeroToOne/loader/vue',
             '/zeroToOne/loader/ts',
+            '/zeroToOne/loader/jsx',
           ]
         },
         {
@@ -146,7 +147,8 @@ module.exports = {
         },
         {
           title: "其它webpack配置", children: [
-            '/zeroToOne/webpack/alias',
+            '/zeroToOne/webpack/resolve.alias',
+            '/zeroToOne/webpack/resolve.extensions',
             '/zeroToOne/webpack/publicPath',
             '/zeroToOne/webpack/htmlWebpackPlugin',
           ]
