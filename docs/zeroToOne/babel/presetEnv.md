@@ -154,6 +154,8 @@ import { xxx } from "./xxxx"
 
 如果设置了`targets`，`@babel/preset-env`就使用`targets`设置的值加载目标环境缺失的 polyfill，否则就用`browserslist`的配置，如果两个都没设置，则`@babel/preset-env`会对代码中所有的 ES6 转 ES5（包括语法/api/实例方法）。
 
+一般情况下，推荐使用`browserslist`的配置。
+
 
 还是以之前的测试代码为例，修改 babelrc 配置，设置`"chrome": "58"`
 
