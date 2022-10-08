@@ -154,8 +154,10 @@ module.exports = {
           ]
         },
         {
-          title: "代码风格", children: [
-            '/zeroToOne/codeFormat/lintAndFormat',
+          title: "ESlint", children: [
+            '/zeroToOne/esLint/overview',
+            '/zeroToOne/esLint/init',
+            '/zeroToOne/esLint/commonConfig',
           ]
         },
         {
