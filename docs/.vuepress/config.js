@@ -156,8 +156,9 @@ module.exports = {
         {
           title: "ESlint", children: [
             '/zeroToOne/esLint/overview',
-            '/zeroToOne/esLint/init',
             '/zeroToOne/esLint/commonConfig',
+            '/zeroToOne/esLint/ignore',
+            '/zeroToOne/esLint/autoFormat',
           ]
         },
         {
