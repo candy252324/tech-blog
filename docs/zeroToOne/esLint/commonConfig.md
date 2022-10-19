@@ -1,16 +1,5 @@
 # 常用配置项说明
 
-
-为了方便学习，先删除之前通过 `eslint --init` 生成的配置：
-
-
-```js
-// .eslintrc.js
-module.exports = {}
-```
-
-
-
 ## parserOptions
 
 **ParserOptions 选项表示 EsLint 对于不同的 Parser（解析器）配置的语言检查规则。**
