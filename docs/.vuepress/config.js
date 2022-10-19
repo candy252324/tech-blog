@@ -166,6 +166,12 @@ module.exports = {
             '/zeroToOne/preCommit/husky',
           ]
         },
+        {
+          title: "遇到的问题", children: [
+            '/zeroToOne/problem/langtsCompilerError',
+            '/zeroToOne/problem/importPngTypeError',
+          ]
+        },
       ],
       "/mess/": [
         // '/mess/priorityLevel',
