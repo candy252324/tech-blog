@@ -120,6 +120,9 @@ module.exports = {
             '/zeroToOne/base/env',
             '/zeroToOne/base/outputPath',
             '/zeroToOne/base/browserslist',
+            '/zeroToOne/base/resolve.alias',
+            '/zeroToOne/base/resolve.extensions',
+            '/zeroToOne/base/publicPath',
           ]
         },
         {
@@ -145,14 +148,12 @@ module.exports = {
             '/zeroToOne/babel/summary'
           ]
         },
-        {
-          title: "其它webpack配置", children: [
-            '/zeroToOne/webpack/resolve.alias',
-            '/zeroToOne/webpack/resolve.extensions',
-            '/zeroToOne/webpack/publicPath',
-            '/zeroToOne/webpack/htmlWebpackPlugin',
-          ]
-        },
+        // cjh todo
+        // {
+        //   title: "其它webpack配置", children: [
+        //     '/zeroToOne/webpack/htmlWebpackPlugin',
+        //   ]
+        // },
         {
           title: "ts的类型检查", children: [
             '/zeroToOne/tsTypeCheck/overview',
