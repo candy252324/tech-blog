@@ -1,6 +1,7 @@
 # .m?jsx?
 
-在 vue 中我们可以写 `jsx` 语法：
+项目中我们可以写 `jsx` 语法：
+>当然，如果项目决定使用 ts 了，就不要再写 jsx，改成 tsx 吧，这里只是展示如果项目要使用 jsx 该如何配置。
 
 ```jsx
 // jsxComp.jsx
@@ -40,5 +41,3 @@ module.exports={
   "plugins":["@vue/babel-plugin-jsx"]
 }
 ```
-
-其他关于 js 的兼容性配置相关在 babel 章节中讲。

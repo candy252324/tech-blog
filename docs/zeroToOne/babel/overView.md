@@ -45,7 +45,7 @@ function babelLoader(sourceCode, options) {
 
 babel 运行总共分为三个阶段：**解析**、**转换**、**生成**。
 
-babel 自 6.0 起，就不再对代码进行 transform，现在只负责 parse 和 generate 过程，代码的 transform 过程全都交给一个个 plugin 去做。所以在没有配置任何plugin的情况下，经过babel输出的代码是没有改变的。
+babel 自 6.0 起，就不再对代码进行 transform，现在只负责 parse 和 generate 过程，代码的 transform 过程全都交给一个个 plugin 去做。**所以在没有配置任何plugin的情况下，经过babel输出的代码是没有改变的**。
 
 
 
