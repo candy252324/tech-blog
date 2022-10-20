@@ -154,6 +154,13 @@ module.exports = {
           ]
         },
         {
+          title: "ts的类型检查", children: [
+            '/zeroToOne/tsTypeCheck/overview',
+            '/zeroToOne/tsTypeCheck/tsconfig',
+            '/zeroToOne/tsTypeCheck/ideTypeCheck',
+          ]
+        },
+        {
           title: "ESlint", children: [
             '/zeroToOne/esLint/overview',
             '/zeroToOne/esLint/commonConfig',
