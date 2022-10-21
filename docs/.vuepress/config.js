@@ -195,7 +195,10 @@ module.exports = {
         },
         {
           title: "gitHooks",
-          children: ["/zeroToOne/gitHooks/husky"],
+          children: [
+            "/zeroToOne/gitHooks/overview",
+            "/zeroToOne/gitHooks/husky",
+          ],
         },
         {
           title: "遇到的问题",

@@ -15,5 +15,5 @@
 
 我们可以给 IDE 安装 `Prettier` 插件，然后将 IDE 默认的格式化工具设置为 `Prettier`。
 
-打开设置，搜索`default formatter`，选择 Prettier，这样，每次文件保存的时候，会自动根据我们的 `.prettierrc` 中的配置进行格式化。
+打开设置，搜索`default formatter`，选择 Prettier，这样，每次文件保存的时候，会根据我们 `.prettierrc` 中的配置自动进行格式化。
 <img :src="$withBase('/imgs/zeroToOne/vscode-prettier-autofomat.jpg')" style="transform:scale(0.9);"/>
