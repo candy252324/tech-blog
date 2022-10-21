@@ -1,4 +1,10 @@
-# 常用配置项说明
+# 配置文件
+
+ESLint 的[配置文件优先级](https://cn.eslint.org/docs/user-guide/configuring)是：
+
+`.eslintrc.js` >`.eslintrc.yaml`>`.eslintrc.yml` >`.eslintrc.json` >`.eslintrc` >`package.json`
+
+以下是常用配置。
 
 ## parserOptions
 

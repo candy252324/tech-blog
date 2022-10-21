@@ -164,9 +164,16 @@ module.exports = {
         {
           title: "ESlint", children: [
             '/zeroToOne/esLint/overview',
-            '/zeroToOne/esLint/commonConfig',
+            '/zeroToOne/esLint/eslintrc.js',
             '/zeroToOne/esLint/ignore',
             '/zeroToOne/esLint/autoFormat',
+          ]
+        },
+        {
+          title: "Prettier", children: [
+            '/zeroToOne/prettier/overview',
+            '/zeroToOne/prettier/prettierrc.js',
+            '/zeroToOne/prettier/conflictWithEslint'
           ]
         },
         {

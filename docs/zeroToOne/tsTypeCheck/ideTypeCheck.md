@@ -7,6 +7,6 @@
 当然也可以全局或项目安装 typescript ，然后在 IDE 中选择自己安装的 typescript 版本进行类型检查。另外，如果用户未提供 `tsconfig.json`，IDE 会使用默认配置。
 
 ### 如何切换编辑器的 typescript 版本？
-vscode 编辑器中 `ctr` + `shift `+ `p` 打开输入框，输入"version"，选择`TypeScript:Select TypeScript Version...`，然后就可以切换 typescript 版本了。
+vscode 编辑器中 `ctrl` + `shift `+ `p` 打开输入框，输入"version"，选择`TypeScript:Select TypeScript Version...`，然后就可以切换 typescript 版本了。
 
 <img :src="$withBase('/imgs/zeroToOne/ide-ts-version.jpg')"/>
