@@ -184,6 +184,14 @@ module.exports = {
             "/zeroToOne/esLint/autoFormat",
           ],
         },
+        // cjh todo
+        // {
+        //   title: "Stylelint",
+        //   children: [
+        //     "/zeroToOne/stylelint/overview",
+        //     "/zeroToOne/stylelint/stylelintrc.js",
+        //   ],
+        // },
         {
           title: "Prettier",
           children: [
