@@ -198,6 +198,7 @@ module.exports = {
           children: [
             "/zeroToOne/gitHooks/overview",
             "/zeroToOne/gitHooks/husky",
+            "/zeroToOne/gitHooks/lintBeforeCommit",
           ],
         },
         {

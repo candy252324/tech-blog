@@ -16,4 +16,4 @@ Git 在执行 `git init` 进行初始化时，会在 `.git/hooks` 目录生成�
 
 我们这里当然不会自己去编写 hooks 脚本，而是使用现成开源的解决方案 [husky](https://github.com/typicode/husky)。
 
-本节内容主要来自于文章[手写 git hooks 脚本](https://zhuanlan.zhihu.com/p/391221822)
+> 本节内容主要来自于文章[手写 git hooks 脚本](https://zhuanlan.zhihu.com/p/391221822)
