@@ -22,13 +22,11 @@ path.resolve(__dirnameNew, '../xxx/xxx')
 
 <!-- cjh todo -->
 
-使用 `rely --open` 参数打开浏览器后，如果想同时分析另一个项目，同样使用 `rely --open` 参数打开浏览器，新的浏览器窗口显示的是内容是第一个项目的。期望的结果是：每次打开一个新的浏览器窗口，端口号自动+1，并生成最新的依赖。这块功能有待完善。
-
-## 3.存在的问题
+1. 使用 `rely --open` 参数打开浏览器后，如果想同时分析另一个项目，同样使用 `rely --open` 参数打开浏览器，新的浏览器窗口显示的是内容是第一个项目的。期望的结果是：每次打开一个新的浏览器窗口，端口号自动+1，并生成最新的依赖。这块功能有待完善。
 
 <!-- cjh todo -->
 
-目前这个工具有一个问题，看如下代码:
+2. 看如下代码，`footerComp` 重新命名为 `footerComp2` 后，按照目前的代码逻辑，生成的 `script依赖` 中将不包含 `footerComp2`，因为解析遍历 ast 的时候只处理了 import 声明，没处理 `export default`里的`components`，待后续完善
 
 ```html
 <tempalte>
@@ -48,4 +46,4 @@ export default {
 </script>
 ```
 
-`footerComp` 重新命名为 `footerComp2` 后，按照目前的代码逻辑，生成的 `script依赖` 中将不包含 `footerComp2`，即最后该文件的依赖中也将不包含 `footerComp2`。
+3. 完善测试用例
