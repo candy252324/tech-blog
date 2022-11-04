@@ -1,6 +1,6 @@
 # 概述
 
-[项目地址](https://github.com/candy252324/component-dependence-analyzer.git)
+[项目地址](https://www.npmjs.com/package/component-dependence-analyzer)
 
 对于业务复杂的项目，如果改动了一个基础业务组件 `A`，测试同学想知道具体有哪些地方使用了组件`A`，前端同学就得按照组件路径逐步往上寻找。比如 `B` 和 `C` 引用了 `A`，而 `B` 和 `C` 并不是一级页面，它们还被其它组件引用。比如，一番查找下来发现最终引用关系是这样的：
 
