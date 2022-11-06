@@ -16,11 +16,13 @@ MVue3
   |- dev.js
 |- /packages
   |- /reactivity  // reactivity 包
-    |- index.ts
     |- package.json
+    |- /src
+      |- index.ts
   |- /shared     // shared 包
-    |- index.ts
     |- package.json
+    |- /src
+      |- index.ts
 ```
 
 然后，根级 `package.json` 中添加 `workspaces` 、 `private:true` 和 `scripts` 字段
@@ -28,7 +30,7 @@ MVue3
 ```json
 // 根级`package.json`
 {
-  "name": "mvue",
+  "name": "vue",
   "workspaces": ["packages/*"],
   "private": "true", // 使用 workspaces， private 必须为 true
   "scripts": {
@@ -47,7 +49,7 @@ MVue3
 ```json
 // /packages/reactivity/package.json
 {
-  "name": "@mvue/reactivity", // 子包 name
+  "name": "@vue/reactivity", // 子包 name
   "version": "1.0.0",
   "buildOptions": {
     "name": "VueReactivity",
@@ -59,7 +61,7 @@ MVue3
 ```json
 // /packages/shared/package.json
 {
-  "name": "@mvue/shared", // 子包 name
+  "name": "@vue/shared", // 子包 name
   "version": "1.0.0",
   "buildOptions": {
     "name": "VueShared",
@@ -121,11 +123,14 @@ console.log(process.env.param2) // bbb
 
 ## rollup.config.js 配置
 
-知道这些之后，就可以开始写`rollup.config.js`配置文件了：
+知道这些之后，就可以开始写`rollup.config.js`配置文件了。
+
+项目使用 ts 开发，安装`rollup-plugin-typescript2 typescript`用于 `rollup` 打包 ts。
 
 ```js
 // rollup.config.js
 import fs from 'fs'
+import typescript from 'rollup-plugin-typescript2' // 用于解析ts
 const target = process.env.TARGET // reactivity
 const fullTarget = `./packages/${target}` // ./packages/reactivity
 const jsonData = require(`./packages/${target}/package.json`) // 读取 ./packages/reactivity/package.json文件内容
@@ -146,11 +151,16 @@ const outputOptions = {
   },
 }
 function createConfig(output) {
+  output.name = buildOptions.name
   output.sourcemap = true
   return {
-    input: `${fullTarget}/index.ts`,
+    input: `${fullTarget}/src/index.ts`,
     output,
-    plugins: [],
+    plugins: [
+      typescript({
+        tsConfig: path.resolve(__dirname, 'tsconfig.json'),
+      }),
+    ],
   }
 }
 export default buildOptions.format.map(format => createConfig(outputOptions[format]))
@@ -161,8 +171,9 @@ export default buildOptions.format.map(format => createConfig(outputOptions[form
 ```js
 export default [
   {
-    input: './packages/reactivity/index.ts',
+    input: './packages/reactivity/src/index.ts',
     output: {
+      name:"VueReactivity",
       file: './packages/reactivity/dist/VueReactivity.esm-bundler.js',
       format: 'es',
       sourcemap: true,
@@ -170,10 +181,23 @@ export default [
     plugins: [],
   },
   {
-    input: './packages/reactivity/index.ts',
+    input: './packages/reactivity/src/index.ts',
     output: {
+      name:"VueReactivity",
       file: './packages/reactivity/dist/VueReactivity.cjs.js',
       format: 'cjs',
+      sourcemap: true,
+    },
+    plugins: [],
+  },
+    {
+    input: './packages/reactivity/src/index.ts',
+    output: {
+      // iife 模式下，打包产物中立即执行函数的结果将赋值给这个 name 变量，VueReactivity=()()
+      // 如果没配置 name，打包产物中只有一个立即执行函数 ()()
+      name:"VueReactivity",
+      file: './packages/reactivity/dist/VueReactivity.global.js',
+      format: 'iife',
       sourcemap: true,
     },
     plugins: [],
@@ -184,5 +208,34 @@ export default [
 
 一切准备就绪，执行 `yarn build`，可以看到打包产物了：
 <img :src="$withBase('/imgs/myvue/vue3-build-test.png')" style="transform:scale(0.9)">
+
+## tsconfig.json 配置
+
+现在，我们在测试在 `shared` 中导出一个方法：`export { isObject }`
+
+然后在 `reactivity` 包中 引入： `import { isObject } from '@vue/shared'`
+
+发现编辑器报错了，打包也无法成功了。
+
+仔细看一下报错信息，是来自 ts 的报错，ts 说它找不到`@vue/shared`这个模块：
+
+<img :src="$withBase('/imgs/myvue/vue3-vscode-tserror.jpg')">
+
+好的，我们`ts --init` 生成配置文件，给它配置一下，告诉 ts，凡是引入`@vue/*`这种格式的包，都去路径`"packages/*/src"`下找，这样就 ok 了。
+
+```json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@vue/*": ["packages/*/src"]
+    }
+    // ....等等
+  }
+}
+```
 
 ## 开发环境打包脚本 dev.js

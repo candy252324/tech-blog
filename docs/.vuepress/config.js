@@ -77,7 +77,7 @@ module.exports = {
         },
         {
           title: '手写vue3',
-          children: ['/vue/vue3/overview', '/vue/vue3/base'],
+          children: ['/vue/vue3/overview', '/vue/vue3/base', '/vue/vue3/reactive', '/vue/vue3/problem'],
         },
         {
           title: 'vue常见问题',
