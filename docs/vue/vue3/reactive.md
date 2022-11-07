@@ -1,4 +1,4 @@
-# 响应式的实现
+# reactive 的实现
 
 ## Proxy 和 Reflect
 
@@ -71,7 +71,7 @@ proxy.age = 100 // 设置 age 属性!
 
 - `readonly` 用法
 
-数据转换和 `reactive` 一样是深层次转换，只是转换结果变成了只读的，不能通过`state.xxx=xxx`的方式修改数据
+数据转换和 `reactive` 一样是深层次转换，只是转换结果变成了只读的，不能通过`state.xxx=xxx`的方式修改数据。一般用于只需要渲染一次，后续不需要更改的数据。
 
 - `shallowReadonly` 用法
 

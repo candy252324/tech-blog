@@ -2,7 +2,9 @@
 
 vue2 和 vue3 的区别：
 
-vue3 使用 monorepo 管理项目
+1. vue3 使用 monorepo 管理项目
+2. vue3 的核心响应式 api 是`Proxy`，vue2 是`Object.defineProperty`
+3. vue3 是懒代理，vue2 是直接全部递归代理
 
 <!-- cjh todo -->
 
