@@ -214,6 +214,10 @@ module.exports = {
           ],
         },
         {
+          title: 'commitlint',
+          children: ['/zeroToOne/commitlint/overview'],
+        },
+        {
           title: '遇到的问题',
           children: ['/zeroToOne/problem/langtsCompilerError', '/zeroToOne/problem/importPngTypeError'],
         },
@@ -240,6 +244,7 @@ module.exports = {
         // '/mess/priorityLevel',
         '/mess/jsonStringify',
         '/mess/requireAndImport',
+        '/mess/requireFile',
         '/mess/svg',
         '/mess/changeTheme',
         '/mess/lessAndSass',

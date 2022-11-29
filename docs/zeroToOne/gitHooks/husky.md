@@ -4,7 +4,7 @@
 
 - `yarn add husky -D`
 
-本项目 `husky`版本是`8.0.1`
+以下 `8.0.1` 版本 `husky` 使用示例：
 
 - `husky install`
 
