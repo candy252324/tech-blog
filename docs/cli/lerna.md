@@ -1,4 +1,4 @@
-# learna
+# lerna
 
 **learn 是一个基于 git+npm 的多 package 项目的管理工具。**
 
@@ -59,7 +59,7 @@ xxx 依赖会被安装到 packages 目录下的所有的包中。
 
 删除 packages 目录下所有包的 node_modules 文件夹（ps:但不会从 package.json 中删除）。
 
-- `learna bootstrap`
+- `lerna bootstrap`
 
 给所有的包重新安装依赖。
 

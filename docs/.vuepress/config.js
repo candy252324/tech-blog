@@ -27,7 +27,7 @@ module.exports = {
         },
         {
           title: 'npm-link 和 lerna',
-          children: ['npm-link', 'learna', 'lerna-principle'],
+          children: ['npm-link', 'lerna', 'lerna-principle'],
         },
         {
           title: '前置检查',
