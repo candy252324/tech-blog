@@ -248,6 +248,8 @@ module.exports = {
         '/mess/svg',
         '/mess/changeTheme',
         '/mess/lessAndSass',
+        '/mess/iconGarbledCode',
+        // '/mess/gitSubModule',
         // '/mess/setTimeoutParam3'
       ],
     },
