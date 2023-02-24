@@ -249,6 +249,7 @@ module.exports = {
         '/mess/changeTheme',
         '/mess/lessAndSass',
         '/mess/iconGarbledCode',
+        '/mess/scriptAsync',
         // '/mess/gitSubModule',
         // '/mess/setTimeoutParam3'
       ],

@@ -9,7 +9,7 @@
 实现方式很简单，改变主题scss变量，然后使用 [dart-sass](https://www.npmjs.com/package/sass) 将全量的 `.scss` 编译成 `.css` 。
 
 
-**出现乱码的原因是，使用 dart-sass 将 `.scss` 编译成 `.css` 时使用了压缩属性，导致 icon 伪元素的 content unicode 编码被转换成了对应 unicode 明文。**
+**出现乱码的原因是，使用 dart-sass 将 `.scss` 编译成 `.css` 时使用了压缩属性，导致 icon 伪元素的 content unicode 编码被转换成了对应 unicode 明文，`content:"\e6c3"` 变成了 `content:""` , 导致乱码。**
 
 如以下示例代码：
 
