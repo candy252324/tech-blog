@@ -224,8 +224,12 @@ module.exports = {
       ],
       '/handwriting/': [
         {
+          title: '抽象语法树ast',
+          children: ['/handwriting/ast/overview', '/handwriting/ast/esprimaExample'],
+        },
+        {
           title: '手写babel插件',
-          children: ['/handwriting/babelPlugin/overview'],
+          children: ['/handwriting/babelPlugin/overview', '/handwriting/babelPlugin/babelPluginSketch'],
         },
         {
           title: '手写stylelint插件',
