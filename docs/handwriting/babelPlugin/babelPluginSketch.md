@@ -1,6 +1,6 @@
 # babel 插件的格式
 
-babel 插件的格式是这样的
+babel 插件的格式是这样的：
 ```js
 module.exports=()=>{
   return {
@@ -36,7 +36,7 @@ module.exports=()=>{
 }
 ```
 
-这些调用都发生在进入节点时，不过有时候我们需要在退出时调用访问者方法。
+这些调用都发生在进入节点时，不过我们也可以在退出时调用访问者方法:
 
 ```js
 const MyVisitor = {
