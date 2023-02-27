@@ -1,5 +1,5 @@
 # 概述
-很多插件的都实现都是离不开 AST(Abstract syntax tree)，所以先介绍 AST。
+很多插件的都实现都离不开 AST(Abstract syntax tree)，所以先介绍 AST。
 
 AST 是源代码语法结构的一种抽象展示，在 [这里](https://astexplorer.net/)直观感受下什么是 AST。
 
