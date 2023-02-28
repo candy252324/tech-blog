@@ -228,15 +228,19 @@ module.exports = {
           children: ['/handwriting/ast/overview', '/handwriting/ast/esprimaExample'],
         },
         {
-          title: '手写babel插件',
-          children: ['/handwriting/babelPlugin/overview', '/handwriting/babelPlugin/babelPluginSketch'],
+          title: 'babel插件开发',
+          children: [
+            '/handwriting/babelPlugin/overview',
+            '/handwriting/babelPlugin/babelPluginSketch',
+            '/handwriting/babelPlugin/transformArrowFunction',
+          ],
         },
         {
-          title: '手写stylelint插件',
+          title: 'stylelint插件开发',
           children: ['/handwriting/stylelintPlugin/overview'],
         },
         {
-          title: '组件依赖关系分析工具',
+          title: '组件依赖关系分析工具开发',
           children: [
             '/handwriting/relyAnalysis/overview',
             '/handwriting/relyAnalysis/realization',

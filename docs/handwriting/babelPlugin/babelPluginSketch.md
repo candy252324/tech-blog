@@ -1,20 +1,28 @@
 # babel 插件的格式
 
-babel 插件的格式是这样的：
-```js
-module.exports=()=>{
-  return {
-    visitor: {
-      // Identifier(node) {
-      //   console.log(node.type)
-      // },
-    },
-  }
-}
-```
-Visitors 是访问者模式，遍历 AST 树时，每当遇见一个 `Identifier` 的时候就会调用 `Identifier()` 方法。
+以下代码中，`transformFn` 就是一个 babel 插件，它其实就是一个具有指定属性（如：`visitor`）的对象：
 
-在下面的代码中，`FunctionDeclaration()` 将被调用 1 次，`Identifier()` 将被调用 5 次。
+```js
+const babel=require("@babel/core")
+const sourceCode="const a=()=>{}"
+
+// transformFn 就是一个babel插件
+var transformFn = {
+  visitor: {
+    ArrowFunctionExpression(path){  // path 是访问路径
+      // todo
+    },
+  },
+}
+const result = babel.transform(sourceCode, {
+  plugins: [transformFn],  
+})
+console.log(result.code)
+```
+
+Visitors 是访问者模式，遍历 AST 树时，每当遇见一个节点，该节点的方法就会被调用。
+
+如下代码，`FunctionDeclaration()` 将被调用 1 次，`Identifier()` 将被调用 5 次。
 ```js
 // 1 个 FunctionDeclaration，5 个 Identifier
 function sum(a, b) {
@@ -25,11 +33,11 @@ function sum(a, b) {
 module.exports=()=>{
   return {
     visitor: {
-      FunctionDeclaration(node) {
-        console.log('Called!',node.type)  // 调用 1 次
+      FunctionDeclaration(path) {
+        console.log('Called!',path.type)  // 调用 1 次
       },
-      Identifier(node) {
-        console.log('Called!',node.type)  // 调用 5 次
+      Identifier(path) {
+        console.log('Called!',path.type)  // 调用 5 次
       },
     },
   }
