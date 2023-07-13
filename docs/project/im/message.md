@@ -113,5 +113,9 @@ const data2 = {
 
 除合并转发记录不可以再次被合并转发外，其它都可以。
 
+- 4. 聊天对话框会有disable的情况
+ 
+ disable 影响顶部 title 的展示和 tooltip 的选项。
+
 
 

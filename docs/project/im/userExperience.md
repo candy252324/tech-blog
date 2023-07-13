@@ -42,6 +42,9 @@ uview组件库的[input组件](https://www.uviewui.com/components/input.html) �
 
 <img :src="$withBase('/imgs/im/picture-display.png')" style="transform:scale(0.8);">
 
+## 图片发送是无序的
+uni 的图片选择api [uni.chooseImage](https://uniapp.dcloud.net.cn/api/media/image.html#chooseimage)返回的已选图片列表本身就是无序的。
+
 ## 消息发送按钮
 
 没有做机型判断，消息发送按钮恒展示，所以在 ios 会看到两个发送按钮。
