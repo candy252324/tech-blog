@@ -258,8 +258,8 @@ module.exports = {
           children: [
             '/project/im/overview',
             '/project/im/websocket',
+            '/project/im/message',
             '/project/im/userExperience',
-            '/project/im/business',
             '/project/im/resolved',
             '/project/im/unresolved'
           ],
