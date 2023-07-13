@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>diff算法 | 先放番茄后放蛋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/tech-blog/logo.jpg">
+    <meta name="description" content="对吗？试试就知道了">
+    
+    <link rel="preload" href="/tech-blog/assets/css/0.styles.b7ccda1f.css" as="style"><link rel="preload" href="/tech-blog/assets/js/app.0f97b9d9.js" as="script"><link rel="preload" href="/tech-blog/assets/js/2.b3ff26a2.js" as="script"><link rel="preload" href="/tech-blog/assets/js/82.98b3e753.js" as="script"><link rel="prefetch" href="/tech-blog/assets/js/10.ecbc9340.js"><link rel="prefetch" href="/tech-blog/assets/js/100.cf268c90.js"><link rel="prefetch" href="/tech-blog/assets/js/101.10df5ade.js"><link rel="prefetch" href="/tech-blog/assets/js/102.392aecdb.js"><link rel="prefetch" href="/tech-blog/assets/js/103.ca421b47.js"><link rel="prefetch" href="/tech-blog/assets/js/104.5ca373d3.js"><link rel="prefetch" href="/tech-blog/assets/js/105.75b84e9b.js"><link rel="prefetch" href="/tech-blog/assets/js/106.6024dad1.js"><link rel="prefetch" href="/tech-blog/assets/js/107.91c40eed.js"><link rel="prefetch" href="/tech-blog/assets/js/108.5a316cf3.js"><link rel="prefetch" href="/tech-blog/assets/js/109.286ca857.js"><link rel="prefetch" href="/tech-blog/assets/js/11.7f537050.js"><link rel="prefetch" href="/tech-blog/assets/js/110.643954ef.js"><link rel="prefetch" href="/tech-blog/assets/js/111.239f0761.js"><link rel="prefetch" href="/tech-blog/assets/js/112.1936c4d6.js"><link rel="prefetch" href="/tech-blog/assets/js/113.da6893e3.js"><link rel="prefetch" href="/tech-blog/assets/js/114.8c3cdf27.js"><link rel="prefetch" href="/tech-blog/assets/js/115.858153e2.js"><link rel="prefetch" href="/tech-blog/assets/js/116.e82fdcfd.js"><link rel="prefetch" href="/tech-blog/assets/js/117.2b2fa5a1.js"><link rel="prefetch" href="/tech-blog/assets/js/118.7a92923b.js"><link rel="prefetch" href="/tech-blog/assets/js/119.23ef3714.js"><link rel="prefetch" href="/tech-blog/assets/js/12.3c69c0b4.js"><link rel="prefetch" href="/tech-blog/assets/js/120.8876470b.js"><link rel="prefetch" href="/tech-blog/assets/js/121.aebbd123.js"><link rel="prefetch" href="/tech-blog/assets/js/122.b7ec94ed.js"><link rel="prefetch" href="/tech-blog/assets/js/123.1e5fda8f.js"><link rel="prefetch" href="/tech-blog/assets/js/124.9d2cbbf1.js"><link rel="prefetch" href="/tech-blog/assets/js/125.9009636a.js"><link rel="prefetch" href="/tech-blog/assets/js/126.0772ef71.js"><link rel="prefetch" href="/tech-blog/assets/js/127.094e3f0b.js"><link rel="prefetch" href="/tech-blog/assets/js/128.fe783ca3.js"><link rel="prefetch" href="/tech-blog/assets/js/129.f7450f1d.js"><link rel="prefetch" href="/tech-blog/assets/js/13.33d9cb1c.js"><link rel="prefetch" href="/tech-blog/assets/js/130.c7f6e451.js"><link rel="prefetch" href="/tech-blog/assets/js/131.913e5681.js"><link rel="prefetch" href="/tech-blog/assets/js/132.7af3b3c1.js"><link rel="prefetch" href="/tech-blog/assets/js/133.7b08a300.js"><link rel="prefetch" href="/tech-blog/assets/js/134.4cbe21e0.js"><link rel="prefetch" href="/tech-blog/assets/js/135.cfb400e6.js"><link rel="prefetch" href="/tech-blog/assets/js/136.4c515e9f.js"><link rel="prefetch" href="/tech-blog/assets/js/137.3bc1c00f.js"><link rel="prefetch" href="/tech-blog/assets/js/138.7f0bc946.js"><link rel="prefetch" href="/tech-blog/assets/js/139.52deaa44.js"><link rel="prefetch" href="/tech-blog/assets/js/14.9d46182b.js"><link rel="prefetch" href="/tech-blog/assets/js/15.bdca9300.js"><link rel="prefetch" href="/tech-blog/assets/js/16.1f5283b2.js"><link rel="prefetch" href="/tech-blog/assets/js/17.7fd9e43b.js"><link rel="prefetch" href="/tech-blog/assets/js/18.f29c48e0.js"><link rel="prefetch" href="/tech-blog/assets/js/19.bd50aef5.js"><link rel="prefetch" href="/tech-blog/assets/js/20.0b976459.js"><link rel="prefetch" href="/tech-blog/assets/js/21.5dff4576.js"><link rel="prefetch" href="/tech-blog/assets/js/22.0577dc77.js"><link rel="prefetch" href="/tech-blog/assets/js/23.c1fc199c.js"><link rel="prefetch" href="/tech-blog/assets/js/24.95d02d1b.js"><link rel="prefetch" href="/tech-blog/assets/js/25.6ad103a2.js"><link rel="prefetch" href="/tech-blog/assets/js/26.30482d41.js"><link rel="prefetch" href="/tech-blog/assets/js/27.f3c8317c.js"><link rel="prefetch" href="/tech-blog/assets/js/28.970a9ad4.js"><link rel="prefetch" href="/tech-blog/assets/js/29.708c0dff.js"><link rel="prefetch" href="/tech-blog/assets/js/3.4ce5f320.js"><link rel="prefetch" href="/tech-blog/assets/js/30.a8f7133e.js"><link rel="prefetch" href="/tech-blog/assets/js/31.3c2738b0.js"><link rel="prefetch" href="/tech-blog/assets/js/32.de180edc.js"><link rel="prefetch" href="/tech-blog/assets/js/33.9dcb16d6.js"><link rel="prefetch" href="/tech-blog/assets/js/34.f961d333.js"><link rel="prefetch" href="/tech-blog/assets/js/35.e7951662.js"><link rel="prefetch" href="/tech-blog/assets/js/36.b2c4e98d.js"><link rel="prefetch" href="/tech-blog/assets/js/37.0b8acb0d.js"><link rel="prefetch" href="/tech-blog/assets/js/38.fbdcba5c.js"><link rel="prefetch" href="/tech-blog/assets/js/39.f39fc4e0.js"><link rel="prefetch" href="/tech-blog/assets/js/4.43271917.js"><link rel="prefetch" href="/tech-blog/assets/js/40.bf0bb729.js"><link rel="prefetch" href="/tech-blog/assets/js/41.6603cbc7.js"><link rel="prefetch" href="/tech-blog/assets/js/42.57365e6d.js"><link rel="prefetch" href="/tech-blog/assets/js/43.596d4f46.js"><link rel="prefetch" href="/tech-blog/assets/js/44.2f6425e3.js"><link rel="prefetch" href="/tech-blog/assets/js/45.0e086616.js"><link rel="prefetch" href="/tech-blog/assets/js/46.c3c70ee8.js"><link rel="prefetch" href="/tech-blog/assets/js/47.9e34dd48.js"><link rel="prefetch" href="/tech-blog/assets/js/48.6739b6b8.js"><link rel="prefetch" href="/tech-blog/assets/js/49.7e3abea9.js"><link rel="prefetch" href="/tech-blog/assets/js/5.6b20605c.js"><link rel="prefetch" href="/tech-blog/assets/js/50.45ef9f9e.js"><link rel="prefetch" href="/tech-blog/assets/js/51.8d9d27f7.js"><link rel="prefetch" href="/tech-blog/assets/js/52.da06ab9a.js"><link rel="prefetch" href="/tech-blog/assets/js/53.a0d45bf1.js"><link rel="prefetch" href="/tech-blog/assets/js/54.54090d51.js"><link rel="prefetch" href="/tech-blog/assets/js/55.0a7a6ed2.js"><link rel="prefetch" href="/tech-blog/assets/js/56.6a47ed6e.js"><link rel="prefetch" href="/tech-blog/assets/js/57.d7362fb2.js"><link rel="prefetch" href="/tech-blog/assets/js/58.7f888059.js"><link rel="prefetch" href="/tech-blog/assets/js/59.58c76403.js"><link rel="prefetch" href="/tech-blog/assets/js/6.d0537508.js"><link rel="prefetch" href="/tech-blog/assets/js/60.7cfa9977.js"><link rel="prefetch" href="/tech-blog/assets/js/61.35b6b3b6.js"><link rel="prefetch" href="/tech-blog/assets/js/62.3f5cfe1e.js"><link rel="prefetch" href="/tech-blog/assets/js/63.02853bc6.js"><link rel="prefetch" href="/tech-blog/assets/js/64.59c1c7eb.js"><link rel="prefetch" href="/tech-blog/assets/js/65.586260ee.js"><link rel="prefetch" href="/tech-blog/assets/js/66.f2679972.js"><link rel="prefetch" href="/tech-blog/assets/js/67.a380a2a7.js"><link rel="prefetch" href="/tech-blog/assets/js/68.73dc5aed.js"><link rel="prefetch" href="/tech-blog/assets/js/69.18941a97.js"><link rel="prefetch" href="/tech-blog/assets/js/7.15347f85.js"><link rel="prefetch" href="/tech-blog/assets/js/70.b879a6ba.js"><link rel="prefetch" href="/tech-blog/assets/js/71.9cd360fc.js"><link rel="prefetch" href="/tech-blog/assets/js/72.7835f552.js"><link rel="prefetch" href="/tech-blog/assets/js/73.ec598b4f.js"><link rel="prefetch" href="/tech-blog/assets/js/74.3cefef2e.js"><link rel="prefetch" href="/tech-blog/assets/js/75.822d02c2.js"><link rel="prefetch" href="/tech-blog/assets/js/76.09c1e815.js"><link rel="prefetch" href="/tech-blog/assets/js/77.46ff07da.js"><link rel="prefetch" href="/tech-blog/assets/js/78.382b4dd5.js"><link rel="prefetch" href="/tech-blog/assets/js/79.f5555a9d.js"><link rel="prefetch" href="/tech-blog/assets/js/8.9b26252c.js"><link rel="prefetch" href="/tech-blog/assets/js/80.7037e778.js"><link rel="prefetch" href="/tech-blog/assets/js/81.78768066.js"><link rel="prefetch" href="/tech-blog/assets/js/83.3fc0c7ac.js"><link rel="prefetch" href="/tech-blog/assets/js/84.a14018ab.js"><link rel="prefetch" href="/tech-blog/assets/js/85.b2a693aa.js"><link rel="prefetch" href="/tech-blog/assets/js/86.7a890113.js"><link rel="prefetch" href="/tech-blog/assets/js/87.a399397f.js"><link rel="prefetch" href="/tech-blog/assets/js/88.6a768eef.js"><link rel="prefetch" href="/tech-blog/assets/js/89.499743b6.js"><link rel="prefetch" href="/tech-blog/assets/js/9.485c3228.js"><link rel="prefetch" href="/tech-blog/assets/js/90.4775ae41.js"><link rel="prefetch" href="/tech-blog/assets/js/91.ce11da28.js"><link rel="prefetch" href="/tech-blog/assets/js/92.2b0f62ae.js"><link rel="prefetch" href="/tech-blog/assets/js/93.de019744.js"><link rel="prefetch" href="/tech-blog/assets/js/94.0e3ee92b.js"><link rel="prefetch" href="/tech-blog/assets/js/95.f67fc49f.js"><link rel="prefetch" href="/tech-blog/assets/js/96.429a0f6e.js"><link rel="prefetch" href="/tech-blog/assets/js/97.bcd0519a.js"><link rel="prefetch" href="/tech-blog/assets/js/98.36015fae.js"><link rel="prefetch" href="/tech-blog/assets/js/99.c6ce69b3.js">
+    <link rel="stylesheet" href="/tech-blog/assets/css/0.styles.b7ccda1f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/tech-blog/" class="home-link router-link-active"><!----> <span class="site-name">先放番茄后放蛋</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/tech-blog/cli/" class="nav-link">
+  Cli
+</a></div><div class="nav-item"><a href="/tech-blog/vue/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/tech-blog/promise/" class="nav-link">
+  Promise
+</a></div><div class="nav-item"><a href="/tech-blog/zeroToOne/" class="nav-link">
+  0 -&gt; 1
+</a></div><div class="nav-item"><a href="/tech-blog/handwriting/" class="nav-link">
+  插件/脚本
+</a></div><div class="nav-item"><a href="/tech-blog/project/" class="nav-link">
+  项目
+</a></div><div class="nav-item"><a href="/tech-blog/mess/" class="nav-link">
+  其它
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/tech-blog/cli/" class="nav-link">
+  Cli
+</a></div><div class="nav-item"><a href="/tech-blog/vue/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/tech-blog/promise/" class="nav-link">
+  Promise
+</a></div><div class="nav-item"><a href="/tech-blog/zeroToOne/" class="nav-link">
+  0 -&gt; 1
+</a></div><div class="nav-item"><a href="/tech-blog/handwriting/" class="nav-link">
+  插件/脚本
+</a></div><div class="nav-item"><a href="/tech-blog/project/" class="nav-link">
+  项目
+</a></div><div class="nav-item"><a href="/tech-blog/mess/" class="nav-link">
+  其它
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写vue1</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>手写vue2</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tech-blog/vue/vue2/overview.html" class="sidebar-link">整体思路</a></li><li><a href="/tech-blog/vue/vue2/renderHelper.html" class="sidebar-link">辅助函数renderHelper</a></li><li><a href="/tech-blog/vue/vue2/renderFn.html" class="sidebar-link">AST 和 渲染函数</a></li><li><a href="/tech-blog/vue/vue2/mountComponent.html" class="sidebar-link">组件挂载</a></li><li><a href="/tech-blog/vue/vue2/patch.html" class="sidebar-link">patch</a></li><li><a href="/tech-blog/vue/vue2/slot.html" class="sidebar-link">插槽原理</a></li><li><a href="/tech-blog/vue/vue2/diff.html" aria-current="page" class="active sidebar-link">diff算法</a></li><li><a href="/tech-blog/vue/vue2/computed.html" class="sidebar-link">computed</a></li><li><a href="/tech-blog/vue/vue2/asyncUpdateQueue.html" class="sidebar-link">异步更新队列</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue常见问题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="diff算法"><a href="#diff算法" class="header-anchor">#</a> diff算法</h1> <p>diff 算法发生在新旧 vnode 同时存在, 且新 vnode 不是文本节点，且新旧 vnode 都有孩子的情况下。</p> <p>掌握diff算法有一个需要知道的前提是：vnode上会记录当前节点对应的真实dom（<code>vnode.elm</code>），及父节点dom(<code>vnode.elm.parentNode</code>)。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 对比新老节点，找出其中的不同，然后更新老节点
+ * @param {*} oldVnode 老节点的 vnode
+ * @param {*} vnode 新节点的 vnode
+ */</span>
+<span class="token keyword">function</span> <span class="token function">patchVnode</span><span class="token punctuation">(</span><span class="token parameter">oldVnode<span class="token punctuation">,</span> vnode</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 如果新老节点相同，则直接结束</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>oldVnode <span class="token operator">===</span> vnode<span class="token punctuation">)</span> <span class="token keyword">return</span>
+
+  <span class="token comment">// 将老 vnode 上的真实节点同步到新的 vnode 上，否则，后续更新的时候会出现 vnode.elm 为空的现象</span>
+  vnode<span class="token punctuation">.</span>elm <span class="token operator">=</span> oldVnode<span class="token punctuation">.</span>elm
+
+  <span class="token comment">// 走到这里说明新老节点不一样，则获取它们的孩子节点，比较孩子节点</span>
+  <span class="token keyword">const</span> ch <span class="token operator">=</span> vnode<span class="token punctuation">.</span>children
+  <span class="token keyword">const</span> oldCh <span class="token operator">=</span> oldVnode<span class="token punctuation">.</span>children
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>vnode<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 新节点不存在文本节点</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">&amp;&amp;</span> oldCh<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 说明新老节点都有孩子</span>
+      <span class="token comment">// diff </span>
+      <span class="token function">updateChildren</span><span class="token punctuation">(</span>ch<span class="token punctuation">,</span> oldCh<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ch<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 老节点没孩子，新节点有孩子</span>
+      <span class="token comment">// 增加孩子节点</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 新节点没孩子，老节点有孩子</span>
+      <span class="token comment">// 删除这些孩子节点</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 新节点存在文本节点</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>vnode<span class="token punctuation">.</span>text<span class="token punctuation">.</span>expression<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 说明存在表达式</span>
+      <span class="token comment">// 获取表达式的新值</span>
+      <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>vnode<span class="token punctuation">.</span>context<span class="token punctuation">[</span>vnode<span class="token punctuation">.</span>text<span class="token punctuation">.</span>expression<span class="token punctuation">]</span><span class="token punctuation">)</span>
+      <span class="token comment">// 旧值</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> oldValue <span class="token operator">=</span> oldVnode<span class="token punctuation">.</span>elm<span class="token punctuation">.</span>textContent
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">!==</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 新老值不一样，则更新</span>
+          oldVnode<span class="token punctuation">.</span>elm<span class="token punctuation">.</span>textContent <span class="token operator">=</span> value
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 防止更新时遇到插槽，导致报错</span>
+        <span class="token comment">// 目前不处理插槽数据的响应式更新</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>主要看一下 <code>updateChildren</code> 这个方法，这就是vue2的<strong>双端比较</strong>，其实就是假设了四种可能的情况，用于降低时间复杂度。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * diff，比对孩子节点，找出不同点，然后将不同点更新到老节点上
+ * @param {*} ch 新 vnode 的所有孩子节点
+ * @param {*} oldCh 老 vnode 的所有孩子节点
+ */</span>
+<span class="token keyword">function</span> <span class="token function">updateChildren</span><span class="token punctuation">(</span><span class="token parameter">ch<span class="token punctuation">,</span> oldCh</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 四个游标</span>
+  <span class="token comment">// 新孩子节点的开始索引，叫 新开始</span>
+  <span class="token keyword">let</span> newStartIdx <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token comment">// 新结束</span>
+  <span class="token keyword">let</span> newEndIdx <span class="token operator">=</span> ch<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
+  <span class="token comment">// 老开始</span>
+  <span class="token keyword">let</span> oldStartIdx <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token comment">// 老结束</span>
+  <span class="token keyword">let</span> oldEndIdx <span class="token operator">=</span> oldCh<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
+  <span class="token comment">// 循环遍历新老节点，找出节点中不一样的地方，然后更新</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>newStartIdx <span class="token operator">&lt;=</span> newEndIdx <span class="token operator">&amp;&amp;</span> oldStartIdx <span class="token operator">&lt;=</span> oldEndIdx<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 根据 web 中的 DOM 操作特点，做了四种假设，降低时间复杂度</span>
+    <span class="token comment">// 新开始节点</span>
+    <span class="token keyword">const</span> newStartNode <span class="token operator">=</span> ch<span class="token punctuation">[</span>newStartIdx<span class="token punctuation">]</span>
+    <span class="token comment">// 新结束节点</span>
+    <span class="token keyword">const</span> newEndNode <span class="token operator">=</span> ch<span class="token punctuation">[</span>newEndIdx<span class="token punctuation">]</span>
+    <span class="token comment">// 老开始节点</span>
+    <span class="token keyword">const</span> oldStartNode <span class="token operator">=</span> oldCh<span class="token punctuation">[</span>oldStartIdx<span class="token punctuation">]</span>
+    <span class="token comment">// 老结束节点</span>
+    <span class="token keyword">const</span> oldEndNode <span class="token operator">=</span> oldCh<span class="token punctuation">[</span>oldEndIdx<span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">sameVNode</span><span class="token punctuation">(</span>newStartNode<span class="token punctuation">,</span> oldStartNode<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 假设新开始和老开始是同一个节点</span>
+      <span class="token comment">// 对比这两个节点，找出不同然后更新</span>
+      <span class="token function">patchVnode</span><span class="token punctuation">(</span>oldStartNode<span class="token punctuation">,</span> newStartNode<span class="token punctuation">)</span>
+      <span class="token comment">// 移动游标</span>
+      oldStartIdx<span class="token operator">++</span>
+      newStartIdx<span class="token operator">++</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">sameVNode</span><span class="token punctuation">(</span>newStartNode<span class="token punctuation">,</span> oldEndNode<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 假设新开始和老结束是同一个节点</span>
+      <span class="token function">patchVnode</span><span class="token punctuation">(</span>oldEndNode<span class="token punctuation">,</span> newStartNode<span class="token punctuation">)</span>
+      <span class="token comment">// 将老结束移动到新开始的位置</span>
+      oldEndNode<span class="token punctuation">.</span>elm<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>oldEndNode<span class="token punctuation">.</span>elm<span class="token punctuation">,</span> oldCh<span class="token punctuation">[</span>newStartIdx<span class="token punctuation">]</span><span class="token punctuation">.</span>elm<span class="token punctuation">)</span>
+      <span class="token comment">// 移动游标</span>
+      newStartIdx<span class="token operator">++</span>
+      oldEndIdx<span class="token operator">--</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">sameVNode</span><span class="token punctuation">(</span>newEndNode<span class="token punctuation">,</span> oldStartNode<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 假设新结束和老开始是同一个节点</span>
+      <span class="token function">patchVnode</span><span class="token punctuation">(</span>oldStartNode<span class="token punctuation">,</span> newEndNode<span class="token punctuation">)</span>
+      <span class="token comment">// 将老开始移动到新结束的位置</span>
+      oldStartNode<span class="token punctuation">.</span>elm<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>oldStartNode<span class="token punctuation">.</span>elm<span class="token punctuation">,</span> oldCh<span class="token punctuation">[</span>newEndIdx<span class="token punctuation">]</span><span class="token punctuation">.</span>elm<span class="token punctuation">.</span>nextSibling<span class="token punctuation">)</span>
+      <span class="token comment">// 移动游标</span>
+      newEndIdx<span class="token operator">--</span>
+      oldStartIdx<span class="token operator">++</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">sameVNode</span><span class="token punctuation">(</span>newEndNode<span class="token punctuation">,</span> oldEndNode<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 假设新结束和老结束是同一个节点</span>
+      <span class="token function">patchVnode</span><span class="token punctuation">(</span>oldEndNode<span class="token punctuation">,</span> newEndNode<span class="token punctuation">)</span>
+      <span class="token comment">// 移动游标</span>
+      newEndIdx<span class="token operator">--</span>
+      oldEndIdx<span class="token operator">--</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 上面几种假设都没命中，则老老实的遍历，找到那个相同元素</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 跳出循环，说明有一个节点首先遍历结束了</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>newStartIdx <span class="token operator">&lt;</span> newEndIdx<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 说明老节点先遍历结束，则将剩余的新节点添加到 DOM 中</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>oldStartIdx <span class="token operator">&lt;</span> oldEndIdx<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 说明新节点先遍历结束，则将剩余的这些老节点从 DOM 中删掉</span>
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 判断两个节点是否相同
+ * 这里的判读比较简单，只做了 key 和 标签的比较
+ */</span>
+<span class="token keyword">function</span> <span class="token function">sameVNode</span><span class="token punctuation">(</span><span class="token parameter">n1<span class="token punctuation">,</span> n2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> n1<span class="token punctuation">.</span>key <span class="token operator">==</span> n2<span class="token punctuation">.</span>key <span class="token operator">&amp;&amp;</span> n1<span class="token punctuation">.</span>tag <span class="token operator">===</span> n2<span class="token punctuation">.</span>tag
+<span class="token punctuation">}</span>
+</code></pre></div><p>举个具体的例子描述一下这个双端比较过程：</p> <p>假设新 vnode 是 a =&gt; b =&gt; c =&gt; d</p> <p>假设旧 vnode 是 d =&gt; a =&gt; c =&gt; b =&gt; e</p> <p>此时的 Dom 顺序应和旧 vnode 一致  D =&gt; A =&gt; C =&gt; B =&gt; E</p> <p>第一次 while 循环，发现新 vnode 的最后一个元素和旧 vnode 的第一个元素相同，都为 d ，走<code>sameVNode(newEndNode, oldStartNode)</code>逻辑。此时 newEndIdx 为 3，则 <code>oldCh[newEndIdx].elm.nextSibling</code> 对应的 dom 是 E。将当前dom D 插入到 dom E 的前面，所以第一次 while 循环后的 dom 顺序变成了 A =&gt; C =&gt; B =&gt; D =&gt; E</p> <img src="/tech-blog/imgs/myvue/vue2-diff1.jpg" title="第一次 while 循环" style="transform:scale(0.8);"> <blockquote><p>关于 insertBefore 有一个小的知识点：第二个参数必传，但是可以为 null 或 undefined, 如果为 null 或 undefined，则元素会被插入到最后面。如：<code>listDom.insertBefore(newDom, referDom)</code>, 如果参考节点为 null 或 undefined， 则 newDom 将会被插入到 listDom 的最后面。</p></blockquote> <p>第二次 while 循环，走<code>sameVNode(newStartNode, oldStartNode)</code>分支，只需要更新dom内容和移动游标位置即可，不需要移动 dom 位置。</p> <img src="/tech-blog/imgs/myvue/vue2-diff2.jpg" title="第二次 while 循环" style="transform:scale(0.8);"> <p>第三次 while 循环 ，走 <code>sameVNode(newEndNode, oldStartNode)</code>，此时 newEndIdx 为 2，则 <code>oldCh[newEndIdx].elm.nextSibling</code> 对应的 dom 是 D。将当前dom C 插入到 dom D 的前面，所以第三次 while 循环后的 dom 顺序变成了 A =&gt; B =&gt; C =&gt; D =&gt; E</p> <img src="/tech-blog/imgs/myvue/vue2-diff3.jpg" title="第三次 while 循环" style="transform:scale(0.8);"> <p>第四次 while 循环 ，走 <code>sameVNode(newStartNode, oldStartNode)</code>，只需要更新dom内容和移动游标位置即可，不需要移动 dom 位置。
+<img src="/tech-blog/imgs/myvue/vue2-diff4.jpg" title="第四次 while 循环" style="transform:scale(0.8);"></p> <p>第四次 while 循环后，由于 newStartIdx &gt; newEndIdx, 不满足 while 循环的条件，跳出循环。同时 oldStartIdx 为3，oldEndIdx为 4， oldStartIdx &lt; oldEndIdx，说明老节点中有多余节点，则将剩余的这些老节点从 DOM 中删掉。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/tech-blog/vue/vue2/slot.html" class="prev">
+        插槽原理
+      </a></span> <span class="next"><a href="/tech-blog/vue/vue2/computed.html">
+        computed
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/tech-blog/assets/js/app.0f97b9d9.js" defer></script><script src="/tech-blog/assets/js/2.b3ff26a2.js" defer></script><script src="/tech-blog/assets/js/82.98b3e753.js" defer></script>
+  </body>
+</html>

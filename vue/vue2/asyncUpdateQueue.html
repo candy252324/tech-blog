@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>异步更新队列 | 先放番茄后放蛋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/tech-blog/logo.jpg">
+    <meta name="description" content="对吗？试试就知道了">
+    
+    <link rel="preload" href="/tech-blog/assets/css/0.styles.b7ccda1f.css" as="style"><link rel="preload" href="/tech-blog/assets/js/app.0f97b9d9.js" as="script"><link rel="preload" href="/tech-blog/assets/js/2.b3ff26a2.js" as="script"><link rel="preload" href="/tech-blog/assets/js/80.7037e778.js" as="script"><link rel="prefetch" href="/tech-blog/assets/js/10.ecbc9340.js"><link rel="prefetch" href="/tech-blog/assets/js/100.cf268c90.js"><link rel="prefetch" href="/tech-blog/assets/js/101.10df5ade.js"><link rel="prefetch" href="/tech-blog/assets/js/102.392aecdb.js"><link rel="prefetch" href="/tech-blog/assets/js/103.ca421b47.js"><link rel="prefetch" href="/tech-blog/assets/js/104.5ca373d3.js"><link rel="prefetch" href="/tech-blog/assets/js/105.75b84e9b.js"><link rel="prefetch" href="/tech-blog/assets/js/106.6024dad1.js"><link rel="prefetch" href="/tech-blog/assets/js/107.91c40eed.js"><link rel="prefetch" href="/tech-blog/assets/js/108.5a316cf3.js"><link rel="prefetch" href="/tech-blog/assets/js/109.286ca857.js"><link rel="prefetch" href="/tech-blog/assets/js/11.7f537050.js"><link rel="prefetch" href="/tech-blog/assets/js/110.643954ef.js"><link rel="prefetch" href="/tech-blog/assets/js/111.239f0761.js"><link rel="prefetch" href="/tech-blog/assets/js/112.1936c4d6.js"><link rel="prefetch" href="/tech-blog/assets/js/113.da6893e3.js"><link rel="prefetch" href="/tech-blog/assets/js/114.8c3cdf27.js"><link rel="prefetch" href="/tech-blog/assets/js/115.858153e2.js"><link rel="prefetch" href="/tech-blog/assets/js/116.e82fdcfd.js"><link rel="prefetch" href="/tech-blog/assets/js/117.2b2fa5a1.js"><link rel="prefetch" href="/tech-blog/assets/js/118.7a92923b.js"><link rel="prefetch" href="/tech-blog/assets/js/119.23ef3714.js"><link rel="prefetch" href="/tech-blog/assets/js/12.3c69c0b4.js"><link rel="prefetch" href="/tech-blog/assets/js/120.8876470b.js"><link rel="prefetch" href="/tech-blog/assets/js/121.aebbd123.js"><link rel="prefetch" href="/tech-blog/assets/js/122.b7ec94ed.js"><link rel="prefetch" href="/tech-blog/assets/js/123.1e5fda8f.js"><link rel="prefetch" href="/tech-blog/assets/js/124.9d2cbbf1.js"><link rel="prefetch" href="/tech-blog/assets/js/125.9009636a.js"><link rel="prefetch" href="/tech-blog/assets/js/126.0772ef71.js"><link rel="prefetch" href="/tech-blog/assets/js/127.094e3f0b.js"><link rel="prefetch" href="/tech-blog/assets/js/128.fe783ca3.js"><link rel="prefetch" href="/tech-blog/assets/js/129.f7450f1d.js"><link rel="prefetch" href="/tech-blog/assets/js/13.33d9cb1c.js"><link rel="prefetch" href="/tech-blog/assets/js/130.c7f6e451.js"><link rel="prefetch" href="/tech-blog/assets/js/131.913e5681.js"><link rel="prefetch" href="/tech-blog/assets/js/132.7af3b3c1.js"><link rel="prefetch" href="/tech-blog/assets/js/133.7b08a300.js"><link rel="prefetch" href="/tech-blog/assets/js/134.4cbe21e0.js"><link rel="prefetch" href="/tech-blog/assets/js/135.cfb400e6.js"><link rel="prefetch" href="/tech-blog/assets/js/136.4c515e9f.js"><link rel="prefetch" href="/tech-blog/assets/js/137.3bc1c00f.js"><link rel="prefetch" href="/tech-blog/assets/js/138.7f0bc946.js"><link rel="prefetch" href="/tech-blog/assets/js/139.52deaa44.js"><link rel="prefetch" href="/tech-blog/assets/js/14.9d46182b.js"><link rel="prefetch" href="/tech-blog/assets/js/15.bdca9300.js"><link rel="prefetch" href="/tech-blog/assets/js/16.1f5283b2.js"><link rel="prefetch" href="/tech-blog/assets/js/17.7fd9e43b.js"><link rel="prefetch" href="/tech-blog/assets/js/18.f29c48e0.js"><link rel="prefetch" href="/tech-blog/assets/js/19.bd50aef5.js"><link rel="prefetch" href="/tech-blog/assets/js/20.0b976459.js"><link rel="prefetch" href="/tech-blog/assets/js/21.5dff4576.js"><link rel="prefetch" href="/tech-blog/assets/js/22.0577dc77.js"><link rel="prefetch" href="/tech-blog/assets/js/23.c1fc199c.js"><link rel="prefetch" href="/tech-blog/assets/js/24.95d02d1b.js"><link rel="prefetch" href="/tech-blog/assets/js/25.6ad103a2.js"><link rel="prefetch" href="/tech-blog/assets/js/26.30482d41.js"><link rel="prefetch" href="/tech-blog/assets/js/27.f3c8317c.js"><link rel="prefetch" href="/tech-blog/assets/js/28.970a9ad4.js"><link rel="prefetch" href="/tech-blog/assets/js/29.708c0dff.js"><link rel="prefetch" href="/tech-blog/assets/js/3.4ce5f320.js"><link rel="prefetch" href="/tech-blog/assets/js/30.a8f7133e.js"><link rel="prefetch" href="/tech-blog/assets/js/31.3c2738b0.js"><link rel="prefetch" href="/tech-blog/assets/js/32.de180edc.js"><link rel="prefetch" href="/tech-blog/assets/js/33.9dcb16d6.js"><link rel="prefetch" href="/tech-blog/assets/js/34.f961d333.js"><link rel="prefetch" href="/tech-blog/assets/js/35.e7951662.js"><link rel="prefetch" href="/tech-blog/assets/js/36.b2c4e98d.js"><link rel="prefetch" href="/tech-blog/assets/js/37.0b8acb0d.js"><link rel="prefetch" href="/tech-blog/assets/js/38.fbdcba5c.js"><link rel="prefetch" href="/tech-blog/assets/js/39.f39fc4e0.js"><link rel="prefetch" href="/tech-blog/assets/js/4.43271917.js"><link rel="prefetch" href="/tech-blog/assets/js/40.bf0bb729.js"><link rel="prefetch" href="/tech-blog/assets/js/41.6603cbc7.js"><link rel="prefetch" href="/tech-blog/assets/js/42.57365e6d.js"><link rel="prefetch" href="/tech-blog/assets/js/43.596d4f46.js"><link rel="prefetch" href="/tech-blog/assets/js/44.2f6425e3.js"><link rel="prefetch" href="/tech-blog/assets/js/45.0e086616.js"><link rel="prefetch" href="/tech-blog/assets/js/46.c3c70ee8.js"><link rel="prefetch" href="/tech-blog/assets/js/47.9e34dd48.js"><link rel="prefetch" href="/tech-blog/assets/js/48.6739b6b8.js"><link rel="prefetch" href="/tech-blog/assets/js/49.7e3abea9.js"><link rel="prefetch" href="/tech-blog/assets/js/5.6b20605c.js"><link rel="prefetch" href="/tech-blog/assets/js/50.45ef9f9e.js"><link rel="prefetch" href="/tech-blog/assets/js/51.8d9d27f7.js"><link rel="prefetch" href="/tech-blog/assets/js/52.da06ab9a.js"><link rel="prefetch" href="/tech-blog/assets/js/53.a0d45bf1.js"><link rel="prefetch" href="/tech-blog/assets/js/54.54090d51.js"><link rel="prefetch" href="/tech-blog/assets/js/55.0a7a6ed2.js"><link rel="prefetch" href="/tech-blog/assets/js/56.6a47ed6e.js"><link rel="prefetch" href="/tech-blog/assets/js/57.d7362fb2.js"><link rel="prefetch" href="/tech-blog/assets/js/58.7f888059.js"><link rel="prefetch" href="/tech-blog/assets/js/59.58c76403.js"><link rel="prefetch" href="/tech-blog/assets/js/6.d0537508.js"><link rel="prefetch" href="/tech-blog/assets/js/60.7cfa9977.js"><link rel="prefetch" href="/tech-blog/assets/js/61.35b6b3b6.js"><link rel="prefetch" href="/tech-blog/assets/js/62.3f5cfe1e.js"><link rel="prefetch" href="/tech-blog/assets/js/63.02853bc6.js"><link rel="prefetch" href="/tech-blog/assets/js/64.59c1c7eb.js"><link rel="prefetch" href="/tech-blog/assets/js/65.586260ee.js"><link rel="prefetch" href="/tech-blog/assets/js/66.f2679972.js"><link rel="prefetch" href="/tech-blog/assets/js/67.a380a2a7.js"><link rel="prefetch" href="/tech-blog/assets/js/68.73dc5aed.js"><link rel="prefetch" href="/tech-blog/assets/js/69.18941a97.js"><link rel="prefetch" href="/tech-blog/assets/js/7.15347f85.js"><link rel="prefetch" href="/tech-blog/assets/js/70.b879a6ba.js"><link rel="prefetch" href="/tech-blog/assets/js/71.9cd360fc.js"><link rel="prefetch" href="/tech-blog/assets/js/72.7835f552.js"><link rel="prefetch" href="/tech-blog/assets/js/73.ec598b4f.js"><link rel="prefetch" href="/tech-blog/assets/js/74.3cefef2e.js"><link rel="prefetch" href="/tech-blog/assets/js/75.822d02c2.js"><link rel="prefetch" href="/tech-blog/assets/js/76.09c1e815.js"><link rel="prefetch" href="/tech-blog/assets/js/77.46ff07da.js"><link rel="prefetch" href="/tech-blog/assets/js/78.382b4dd5.js"><link rel="prefetch" href="/tech-blog/assets/js/79.f5555a9d.js"><link rel="prefetch" href="/tech-blog/assets/js/8.9b26252c.js"><link rel="prefetch" href="/tech-blog/assets/js/81.78768066.js"><link rel="prefetch" href="/tech-blog/assets/js/82.98b3e753.js"><link rel="prefetch" href="/tech-blog/assets/js/83.3fc0c7ac.js"><link rel="prefetch" href="/tech-blog/assets/js/84.a14018ab.js"><link rel="prefetch" href="/tech-blog/assets/js/85.b2a693aa.js"><link rel="prefetch" href="/tech-blog/assets/js/86.7a890113.js"><link rel="prefetch" href="/tech-blog/assets/js/87.a399397f.js"><link rel="prefetch" href="/tech-blog/assets/js/88.6a768eef.js"><link rel="prefetch" href="/tech-blog/assets/js/89.499743b6.js"><link rel="prefetch" href="/tech-blog/assets/js/9.485c3228.js"><link rel="prefetch" href="/tech-blog/assets/js/90.4775ae41.js"><link rel="prefetch" href="/tech-blog/assets/js/91.ce11da28.js"><link rel="prefetch" href="/tech-blog/assets/js/92.2b0f62ae.js"><link rel="prefetch" href="/tech-blog/assets/js/93.de019744.js"><link rel="prefetch" href="/tech-blog/assets/js/94.0e3ee92b.js"><link rel="prefetch" href="/tech-blog/assets/js/95.f67fc49f.js"><link rel="prefetch" href="/tech-blog/assets/js/96.429a0f6e.js"><link rel="prefetch" href="/tech-blog/assets/js/97.bcd0519a.js"><link rel="prefetch" href="/tech-blog/assets/js/98.36015fae.js"><link rel="prefetch" href="/tech-blog/assets/js/99.c6ce69b3.js">
+    <link rel="stylesheet" href="/tech-blog/assets/css/0.styles.b7ccda1f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/tech-blog/" class="home-link router-link-active"><!----> <span class="site-name">先放番茄后放蛋</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/tech-blog/cli/" class="nav-link">
+  Cli
+</a></div><div class="nav-item"><a href="/tech-blog/vue/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/tech-blog/promise/" class="nav-link">
+  Promise
+</a></div><div class="nav-item"><a href="/tech-blog/zeroToOne/" class="nav-link">
+  0 -&gt; 1
+</a></div><div class="nav-item"><a href="/tech-blog/handwriting/" class="nav-link">
+  插件/脚本
+</a></div><div class="nav-item"><a href="/tech-blog/project/" class="nav-link">
+  项目
+</a></div><div class="nav-item"><a href="/tech-blog/mess/" class="nav-link">
+  其它
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/tech-blog/cli/" class="nav-link">
+  Cli
+</a></div><div class="nav-item"><a href="/tech-blog/vue/" class="nav-link router-link-active">
+  Vue
+</a></div><div class="nav-item"><a href="/tech-blog/promise/" class="nav-link">
+  Promise
+</a></div><div class="nav-item"><a href="/tech-blog/zeroToOne/" class="nav-link">
+  0 -&gt; 1
+</a></div><div class="nav-item"><a href="/tech-blog/handwriting/" class="nav-link">
+  插件/脚本
+</a></div><div class="nav-item"><a href="/tech-blog/project/" class="nav-link">
+  项目
+</a></div><div class="nav-item"><a href="/tech-blog/mess/" class="nav-link">
+  其它
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写vue1</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>手写vue2</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tech-blog/vue/vue2/overview.html" class="sidebar-link">整体思路</a></li><li><a href="/tech-blog/vue/vue2/renderHelper.html" class="sidebar-link">辅助函数renderHelper</a></li><li><a href="/tech-blog/vue/vue2/renderFn.html" class="sidebar-link">AST 和 渲染函数</a></li><li><a href="/tech-blog/vue/vue2/mountComponent.html" class="sidebar-link">组件挂载</a></li><li><a href="/tech-blog/vue/vue2/patch.html" class="sidebar-link">patch</a></li><li><a href="/tech-blog/vue/vue2/slot.html" class="sidebar-link">插槽原理</a></li><li><a href="/tech-blog/vue/vue2/diff.html" class="sidebar-link">diff算法</a></li><li><a href="/tech-blog/vue/vue2/computed.html" class="sidebar-link">computed</a></li><li><a href="/tech-blog/vue/vue2/asyncUpdateQueue.html" aria-current="page" class="active sidebar-link">异步更新队列</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>手写vue3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue常见问题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="异步更新队列"><a href="#异步更新队列" class="header-anchor">#</a> 异步更新队列</h1> <p>整体思路：</p> <ol><li><p>定义两个数组 <code>queue</code>（用于存放 watcher） 和 <code>callbacks</code>（用于存放刷新 watcher 队列的函数，或者用户调用 Vue.nextTick 方法传递的回调函数）</p></li> <li><p>定义两个函数 <code>flushSchedulerQueue</code>（用于遍历<code>queue</code>执行 watcher 回调） 和 <code>flushCallbacks</code>（用于遍历<code>callbacks</code>执行里面的 cb）</p></li></ol> <blockquote><p>假如现在 dep 里有两个 watcher（watcher1 和 watcher2），还有一个用户使用 nextTick 自定义的回调 cb3 ，这种情况下，queue = [watcher1, watcher2]，callbacks = [flushSchedulerQueue，cb3]</p></blockquote> <ol start="3"><li><p>定义变量 flushing，用于标识现在是否正在刷新 watcher 队列，初始值 false，<code>flushSchedulerQueue</code>开始执行时置为 true, watcher 回调全部执行完置为 false</p></li> <li><p>定义变量 waiting， 保证 callbacks 数组中只会有一个刷新 watcher 队列的函数，初始值 false，首次执行<code>queueWatcher</code>便置为 true</p></li> <li><p>定义变量 pending， 标识浏览器当前任务队列中是否存在刷新 callbacks 数组的函数，初始值 false，首次执行<code>nextTick</code>便置为 true，<code>flushCallbacks</code> 开始执行时置为 false</p></li> <li><p>此外，首次执行<code>nextTick</code>的时候还会使用 Promise.resolve().then() 将<code>flushSchedulerQueue</code>放入异步队队列中等待执行，后面再执行 <code>nextTick</code>只会往 callbacks 里 push cb</p></li></ol> <p>以下是具体的实现代码。</p> <p>首先watcher 需要改一下，增加 uid(用于排序) 及改造 update 方法</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Watcher.mjs</span>
+<span class="token keyword">import</span> queueWatcher <span class="token keyword">from</span> <span class="token string">'./asyncUpdateQueue.mjs'</span>
+<span class="token keyword">let</span> uid <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Watcher</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">cb<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> vm <span class="token operator">=</span> <span class="token keyword">null</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>uid <span class="token operator">=</span> uid<span class="token operator">++</span>  
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 当响应式数据更新时，执行update</span>
+  <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 懒执行</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>options<span class="token punctuation">.</span>lazy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>dirty <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token function">queueWatcher</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以下是 asyncUpdateQueue.mjs 文件内容</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 存储本次更新的所有 watcher</span>
+<span class="token keyword">const</span> queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token comment">// 标识现在是否正在刷新 watcher 队列</span>
+<span class="token keyword">let</span> flushing <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token comment">// 保证 callbacks 数组中只会有一个刷新 watcher 队列的函数</span>
+<span class="token keyword">let</span> waiting <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token comment">// 存放刷新 watcher 队列的函数，或者用户调用 Vue.nextTick 方法传递的回调函数</span>
+<span class="token keyword">const</span> callbacks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token comment">// 标识浏览器当前任务队列中是否存在刷新 callbacks 数组的函数</span>
+<span class="token keyword">let</span> pending <span class="token operator">=</span> <span class="token boolean">false</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 将 watcher 放入队列
+ * @param {*} watcher 待会儿需要被执行的 watcher，包括渲染 watcher、用户 watcher、computed
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">queueWatcher</span><span class="token punctuation">(</span><span class="token parameter">watcher</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>queue<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>watcher<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 防止重复入队</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flushing<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 现在没有在刷新 watcher 队列</span>
+      queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>watcher<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 正在刷新 watcher 队列，比如用户 watcher 的回调函数中更改了某个响应式数据</span>
+      <span class="token comment">// 标记当前 watcher 在 for 中是否已经完成入队操作</span>
+      <span class="token keyword">let</span> flag <span class="token operator">=</span> <span class="token boolean">false</span>
+      <span class="token comment">// 这时的 watcher 队列时有序的(uid 由小到大)，需要保证当前 watcher 插入进去后仍然有序</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> queue<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>queue<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>uid <span class="token operator">&lt;</span> watcher<span class="token punctuation">.</span>uid<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 找到了刚好比当前 watcher.uid 小的那个 watcher 的位置</span>
+          <span class="token comment">// 将当前 watcher 插入到该位置的后面</span>
+          queue<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> watcher<span class="token punctuation">)</span>
+          flag <span class="token operator">=</span> <span class="token boolean">true</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 说明上面的 for 循环在队列中没找到比当前 watcher.uid 小的 watcher</span>
+        <span class="token comment">// 将当前 watcher 插入到队首 </span>
+        queue<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>watcher<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>waiting<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 表示当前 callbacks 数组中还没有刷新 watcher 队列的函数</span>
+      <span class="token comment">// 保证 callbacks 数组中只会有一个刷新 watcher 队列的函数</span>
+      <span class="token comment">// 因为如果有多个，没有任何意义，第二个执行的时候 watcher 队列已经为空了</span>
+      waiting <span class="token operator">=</span> <span class="token boolean">true</span>
+      <span class="token function">nextTick</span><span class="token punctuation">(</span>flushSchedulerQueue<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 负责刷新 watcher 队列的函数，由 flushCallbacks 函数调用
+ */</span>
+<span class="token keyword">function</span> <span class="token function">flushSchedulerQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 表示正在刷新 watcher 队列</span>
+  flushing <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token comment">// 给 watcher 队列排序，根据 uid 由小到大排序</span>
+  queue<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a<span class="token punctuation">.</span>uid <span class="token operator">-</span> b<span class="token punctuation">.</span>uid<span class="token punctuation">)</span>
+  <span class="token comment">// 遍历队列，依次执行其中每个 watcher 的 run 方法</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>queue<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 取出队首的 watcher</span>
+    <span class="token keyword">const</span> watcher <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// 执行 run 方法</span>
+    watcher<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 到这里 watcher 队列刷新完毕</span>
+  flushing <span class="token operator">=</span> waiting <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 将刷新 watcher 队列的函数或者用户调用 Vue.nextTick 方法传递的回调函数放入 callbacks 数组
+ * 如果当前的浏览器任务队列中没有刷新 callbacks 的函数，则将 flushCallbacks 函数放入任务队列
+ */</span>
+<span class="token keyword">function</span> <span class="token function">nextTick</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  callbacks<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>cb<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pending<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 表明浏览器当前任务队列中没有刷新 callbacks 数组的函数</span>
+    <span class="token comment">// 将 flushCallbacks 函数放入浏览器的微任务队列</span>
+    Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>flushCallbacks<span class="token punctuation">)</span>
+    <span class="token comment">// 标识浏览器的微任务队列中已经存在 刷新 callbacks 数组的函数了</span>
+    pending <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * 负责刷新 callbacks 数组的函数，执行 callbacks 数组中的所有函数
+ */</span>
+<span class="token keyword">function</span> <span class="token function">flushCallbacks</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 表示浏览器任务队列中的 flushCallbacks 函数已经被拿到执行栈执行了</span>
+  <span class="token comment">// 新的 flushCallbacks 函数可以进入浏览器的任务队列了</span>
+  pending <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>callbacks<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 拿出最头上的回调函数</span>
+    <span class="token keyword">const</span> cb <span class="token operator">=</span> callbacks<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment">// 执行回调函数</span>
+    <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/tech-blog/vue/vue2/computed.html" class="prev">
+        computed
+      </a></span> <span class="next"><a href="/tech-blog/vue/vue3/overview.html">
+        整体思路
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/tech-blog/assets/js/app.0f97b9d9.js" defer></script><script src="/tech-blog/assets/js/2.b3ff26a2.js" defer></script><script src="/tech-blog/assets/js/80.7037e778.js" defer></script>
+  </body>
+</html>
