@@ -82,6 +82,7 @@ module.exports = {
             '/vue/vue3/base',
             '/vue/vue3/reactive',
             '/vue/vue3/effect',
+            '/vue/vue3/ref',
             '/vue/vue3/problem',
           ],
         },
@@ -188,14 +189,10 @@ module.exports = {
             '/zeroToOne/esLint/autoFormat',
           ],
         },
-        // cjh todo
-        // {
-        //   title: "Stylelint",
-        //   children: [
-        //     "/zeroToOne/stylelint/overview",
-        //     "/zeroToOne/stylelint/stylelintrc.js",
-        //   ],
-        // },
+        {
+          title: 'Stylelint',
+          children: ['/zeroToOne/stylelint/overview', '/zeroToOne/stylelint/stylelintrc.js'],
+        },
         {
           title: 'Prettier',
           children: [
@@ -233,6 +230,12 @@ module.exports = {
             '/handwriting/babelPlugin/overview',
             '/handwriting/babelPlugin/babelPluginSketch',
             '/handwriting/babelPlugin/transformArrowFunction',
+          ],
+        },
+        {
+          title: 'eslint插件开发',
+          children: [
+            '/handwriting/eslintPlugin/overview',
           ],
         },
         {
