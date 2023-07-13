@@ -260,8 +260,6 @@ module.exports = {
             '/project/im/websocket',
             '/project/im/message',
             '/project/im/userExperience',
-            '/project/im/resolved',
-            '/project/im/unresolved'
           ],
         },
       ],
