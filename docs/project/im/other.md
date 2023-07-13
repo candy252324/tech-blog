@@ -53,6 +53,9 @@ export default function (config) {
   
 uni 的图片上传 api [uni.uploadFile](https://uniapp.dcloud.net.cn/api/request/network-file.html#uploadfile)只支持 POST 请求，而后端返回的 oss 上传地址只支持 PUT 请求。
 
+## for 循环 key 必选有值，否则图片会渲染不出来
+
+for 循环如果没有 key , 里面的图片在浏览器上能正常展示，但是真机调试渲染不出来。
 ## 没找到合适的调试工具
 
  如果是微信小程序或 h5,可以用 `vconsole`，但是 uni 没找到合适的调试工具。
