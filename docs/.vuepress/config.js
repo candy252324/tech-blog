@@ -17,6 +17,7 @@ module.exports = {
       { text: 'Promise', link: '/promise/' },
       { text: '0 -> 1', link: '/zeroToOne/' },
       { text: '插件/脚本', link: '/handwriting/' },
+      { text: '项目', link: '/project/' },
       { text: '其它', link: '/mess/' },
     ],
     sidebar: {
@@ -248,6 +249,19 @@ module.exports = {
             '/handwriting/relyAnalysis/overview',
             '/handwriting/relyAnalysis/realization',
             '/handwriting/relyAnalysis/problem',
+          ],
+        },
+      ],
+      '/project/': [
+        {
+          title: 'im',
+          children: [
+            '/project/im/overview',
+            '/project/im/websocket',
+            '/project/im/userExperience',
+            '/project/im/business',
+            '/project/im/resolved',
+            '/project/im/unresolved'
           ],
         },
       ],
